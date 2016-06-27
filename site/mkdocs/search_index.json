@@ -2,12 +2,12 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome to Javascript Tutorial", 
+            "text": "Welcome to Javascript Tutorial\n\n\nThis is an introduction of magizbox team.", 
             "title": "Home"
         }, 
         {
             "location": "/#welcome-to-javascript-tutorial", 
-            "text": "", 
+            "text": "This is an introduction of magizbox team.", 
             "title": "Welcome to Javascript Tutorial"
         }, 
         {
