@@ -18,3 +18,5 @@ pages:
   - "Package Manager": "package_manager.md"
   - "Build Tool": "build_tool.md"
   - "Make Module": "make_module.md"
+markdown_extensions:
+    - footnotes
