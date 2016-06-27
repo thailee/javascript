@@ -6,25 +6,26 @@
 
 ### 1. Install `gulp-jsdoc`
 
-[code]
-npm install --save-dev gulp-jsdoc
-[/code]
+```
+npm install --save-dev gulp gulp-jsdoc
+```
+
 
 ### 2. Create `documentation` task in `gulpfile.js`
 
-[code lang="javascript"]
+```javascript
 gulp.task('documentation', function(){
   return gulp
     .src("./src/*.js")
-    .pipe(jsdoc('./documentation'));
+    .pipe(jsdoc('./docs'));
 });
-[/code]
+```
 
 ### 3. Refresh `Gulp` tasks
 
 ### 4. Add documentation to your code ([example: should.js](https://github.com/shouldjs/should.js/blob/master/lib/should.js))
 
-[code lang="javascript"]
+```javascript
 /**
  * Simple utility function for a bit more easier should assertion
  * extension
@@ -48,7 +49,8 @@ should.use = function(f) {
   f(should, should.Assertion);
   return this;
 };
-[/code]
+
+```
 
 ### 5. Run `documentation` task
 

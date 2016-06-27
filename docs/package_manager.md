@@ -16,18 +16,19 @@ bower install jquery underscore moment sprintf -S
 
 **HTML `<bower based>`**
 
-[code language="html"]
+```html
 <script src="./bower_components/jquery/dist/jquery.js"></script>
 <script src="./bower_components/moment/moment.js"></script>
 <script src="./bower_components/underscore/underscore.js"></script>
 <script src="./bower_components/sprintf/src/sprintf.js"></script>
-[/code]
+```
+
 
 **HTML `<cdn based>`**
 
-[code language="html"]
+```html
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/sprintf/1.0.3/sprintf.js"></script>
-[/code]
+```
 

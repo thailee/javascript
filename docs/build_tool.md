@@ -19,7 +19,7 @@ Here's some of the sweet stuff you try out with this repo.
 
 Watch
 
-[code lang="javascript" title="gulpfile.js"]
+```javascript
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
@@ -66,7 +66,7 @@ gulp.task('documentation', function () {
 });
 
 gulp.task('default', ['js_thirdparty', 'js_modules']);
-[/code]
+```
 
 <a href="http://gulpjs.com/" target="_blank">http://gulpjs.com/</a>
 
