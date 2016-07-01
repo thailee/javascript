@@ -219,38 +219,43 @@
 <p><img alt="" src="http://wearelaunchbox.com/wp-content/uploads/2012/11/oop-basics.png" /></p>
 <h1 id="1-classes-and-objects">1. Classes and Objects</h1>
 <h3 id="constructor">Constructor</h3>
-<p>[code lang="javascript"]
-function Ball(position){
+<pre><code>function Ball(position){
     this.position = position;
     this.display = function(){
-        console.log(this.position[0], ", ", this.position[1]);
+        console.log(this.position[0], &quot;, &quot;, this.position[1]);
     }
-}</p>
-<p>ball = new Ball([2, 3]);
+}
+
+ball = new Ball([2, 3]);
 ball.display();
-[/code]</p>
+</code></pre>
+
 <h1 id="2-inheritance">2. Inheritance</h1>
-<p>[code lang="javascript"]
-Person = function (name, birthday, job) {
+<pre><code>Person = function (name, birthday, job) {
   this.name = name;
   this.birthday = birthday;
   this.job = job;
-};</p>
-<p>Person.prototype.display = function () {
-  console.log(this.name, "\n");
-  console.log(this.birthday, "\n");
-  console.log(this.job, "\n");
-};</p>
-<p>Politician = function (name, birthday) {
-  Person.call(this, name, birthday, "Politician");
+};
+
+Person.prototype.display = function () {
+  console.log(this.name, &quot;\n&quot;);
+  console.log(this.birthday, &quot;\n&quot;);
+  console.log(this.job, &quot;\n&quot;);
+};
+
+Politician = function (name, birthday) {
+  Person.call(this, name, birthday, &quot;Politician&quot;);
 };
 Politician.prototype = Object.create(Person.prototype);
-Politician.prototype.constructor = Politician;</p>
-<p>var person1 = new Person("Barack Obama", "04/08/1961", "Politician");
-var person2 = new Politician("David Cameron", "09/10/1966");
+Politician.prototype.constructor = Politician;
+
+var person1 = new Person(&quot;Barack Obama&quot;, &quot;04/08/1961&quot;, &quot;Politician&quot;);
+var person2 = new Politician(&quot;David Cameron&quot;, &quot;09/10/1966&quot;);
 person1.display();
 person2.display();
-[/code]</p>
+
+</code></pre>
+
 <p>[1]: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript">Introduction to Object-Oriented JavaScript</a>
 [2]: <a href="http://stackoverflow.com/a/15399594/772391">How to call parent constructor?</a></p></div>
             

@@ -87,12 +87,12 @@
         }, 
         {
             "location": "/data_object/", 
-            "text": "Convert dict to object\n\n\nclass Struct:\n    def __init__(self, **entries):\n        self.__dict__.update(entries)\n\n\n\n\nThen, you can use\n\n\n args = {'a': 1, 'b': 2}\n\n s = Struct(**args)\n\n s\n\n __main__.Struct instance at 0x01D6A738 \n\n\n s.a\n1\n\n s.b\n2\n\n\n\n\n\n\n\n\n\n\n\n\nstackoverflow, Convert Python dict to object?", 
+            "text": "Convert dict to object \n1\n\n\nclass Struct:\n    def __init__(self, **entries):\n        self.__dict__.update(entries)\n\n\n\n\nThen, you can use\n\n\n args = {'a': 1, 'b': 2}\n\n s = Struct(**args)\n\n s\n\n __main__.Struct instance at 0x01D6A738 \n\n\n s.a\n1\n\n s.b\n2\n\n\n\n\n\n\n\n\n\n\n\n\nstackoverflow, Convert Python dict to object?", 
             "title": "Object"
         }, 
         {
             "location": "/oop/", 
-            "text": "1. Classes and Objects\n\n\nConstructor\n\n\n[code lang=\"javascript\"]\nfunction Ball(position){\n    this.position = position;\n    this.display = function(){\n        console.log(this.position[0], \", \", this.position[1]);\n    }\n}\n\n\nball = new Ball([2, 3]);\nball.display();\n[/code]\n\n\n2. Inheritance\n\n\n[code lang=\"javascript\"]\nPerson = function (name, birthday, job) {\n  this.name = name;\n  this.birthday = birthday;\n  this.job = job;\n};\n\n\nPerson.prototype.display = function () {\n  console.log(this.name, \"\\n\");\n  console.log(this.birthday, \"\\n\");\n  console.log(this.job, \"\\n\");\n};\n\n\nPolitician = function (name, birthday) {\n  Person.call(this, name, birthday, \"Politician\");\n};\nPolitician.prototype = Object.create(Person.prototype);\nPolitician.prototype.constructor = Politician;\n\n\nvar person1 = new Person(\"Barack Obama\", \"04/08/1961\", \"Politician\");\nvar person2 = new Politician(\"David Cameron\", \"09/10/1966\");\nperson1.display();\nperson2.display();\n[/code]\n\n\n[1]: \nIntroduction to Object-Oriented JavaScript\n\n[2]: \nHow to call parent constructor?", 
+            "text": "1. Classes and Objects\n\n\nConstructor\n\n\nfunction Ball(position){\n    this.position = position;\n    this.display = function(){\n        console.log(this.position[0], \n, \n, this.position[1]);\n    }\n}\n\nball = new Ball([2, 3]);\nball.display();\n\n\n\n\n2. Inheritance\n\n\nPerson = function (name, birthday, job) {\n  this.name = name;\n  this.birthday = birthday;\n  this.job = job;\n};\n\nPerson.prototype.display = function () {\n  console.log(this.name, \n\\n\n);\n  console.log(this.birthday, \n\\n\n);\n  console.log(this.job, \n\\n\n);\n};\n\nPolitician = function (name, birthday) {\n  Person.call(this, name, birthday, \nPolitician\n);\n};\nPolitician.prototype = Object.create(Person.prototype);\nPolitician.prototype.constructor = Politician;\n\nvar person1 = new Person(\nBarack Obama\n, \n04/08/1961\n, \nPolitician\n);\nvar person2 = new Politician(\nDavid Cameron\n, \n09/10/1966\n);\nperson1.display();\nperson2.display();\n\n\n\n\n\n[1]: \nIntroduction to Object-Oriented JavaScript\n\n[2]: \nHow to call parent constructor?", 
             "title": "OOP"
         }, 
         {
@@ -102,12 +102,12 @@
         }, 
         {
             "location": "/oop/#constructor", 
-            "text": "[code lang=\"javascript\"]\nfunction Ball(position){\n    this.position = position;\n    this.display = function(){\n        console.log(this.position[0], \", \", this.position[1]);\n    }\n}  ball = new Ball([2, 3]);\nball.display();\n[/code]", 
+            "text": "function Ball(position){\n    this.position = position;\n    this.display = function(){\n        console.log(this.position[0],  ,  , this.position[1]);\n    }\n}\n\nball = new Ball([2, 3]);\nball.display();", 
             "title": "Constructor"
         }, 
         {
             "location": "/oop/#2-inheritance", 
-            "text": "[code lang=\"javascript\"]\nPerson = function (name, birthday, job) {\n  this.name = name;\n  this.birthday = birthday;\n  this.job = job;\n};  Person.prototype.display = function () {\n  console.log(this.name, \"\\n\");\n  console.log(this.birthday, \"\\n\");\n  console.log(this.job, \"\\n\");\n};  Politician = function (name, birthday) {\n  Person.call(this, name, birthday, \"Politician\");\n};\nPolitician.prototype = Object.create(Person.prototype);\nPolitician.prototype.constructor = Politician;  var person1 = new Person(\"Barack Obama\", \"04/08/1961\", \"Politician\");\nvar person2 = new Politician(\"David Cameron\", \"09/10/1966\");\nperson1.display();\nperson2.display();\n[/code]  [1]:  Introduction to Object-Oriented JavaScript \n[2]:  How to call parent constructor?", 
+            "text": "Person = function (name, birthday, job) {\n  this.name = name;\n  this.birthday = birthday;\n  this.job = job;\n};\n\nPerson.prototype.display = function () {\n  console.log(this.name,  \\n );\n  console.log(this.birthday,  \\n );\n  console.log(this.job,  \\n );\n};\n\nPolitician = function (name, birthday) {\n  Person.call(this, name, birthday,  Politician );\n};\nPolitician.prototype = Object.create(Person.prototype);\nPolitician.prototype.constructor = Politician;\n\nvar person1 = new Person( Barack Obama ,  04/08/1961 ,  Politician );\nvar person2 = new Politician( David Cameron ,  09/10/1966 );\nperson1.display();\nperson2.display();  [1]:  Introduction to Object-Oriented JavaScript \n[2]:  How to call parent constructor?", 
             "title": "2. Inheritance"
         }, 
         {
@@ -137,13 +137,13 @@
         }, 
         {
             "location": "/documentation/", 
-            "text": "Component\n\n\njsdoc\n, gulp, PyCharm\n\n\nUsage\n\n\n1. Install \ngulp-jsdoc\n\n\nnpm install --save-dev gulp gulp-jsdoc\n\n\n\n\n2. Create \ndocumentation\n task in \ngulpfile.js\n\n\ngulp.task('documentation', function(){\n  return gulp\n    .src(\n./src/*.js\n)\n    .pipe(jsdoc('./docs'));\n});\n\n\n\n\n3. Refresh \nGulp\n tasks\n\n\n4. Add documentation to your code (\nexample: should.js\n)\n\n\n/**\n * Simple utility function for a bit more easier should assertion\n * extension\n * @param {Function} f So called plugin function. It should accept\n * 2 arguments: `should` function and `Assertion` constructor\n * @memberOf should\n * @returns {Function} Returns `should` function\n * @static\n * @example\n *\n * should.use(function(should, Assertion) {\n *   Assertion.add('asset', function() {\n *      this.params = { operator: 'to be asset' };\n *\n *      this.obj.should.have.property('id').which.is.a.Number();\n *      this.obj.should.have.property('path');\n *  })\n * })\n */\nshould.use = function(f) {\n  f(should, should.Assertion);\n  return this;\n};\n\n\n\n\n\n5. Run \ndocumentation\n task", 
+            "text": "Components\n\n\njsdoc\n (with \ndocdash\n template)\n\n\nJSDoc is an API documentation generator for JavaScript, similar to JavaDoc or PHPDoc. You add documentation comments directly to your source code, right along side the code itself. The JSDoc Tool will scan your source code, and generate a complete HTML documentation website for you.\n\n\ngulp\n, \nPyCharm\n\n\nUsage\n\n\nStep 1. Install \ngulp-jsdoc\n\n\nnpm install --save-dev gulp gulp-jsdoc docdash\n\n\n\n\nStep 2. Create \ndocumentation\n task\n\n\nCreate \ndocumentation\n task in \ngulpfile.js\n file\n\n\nvar template = {\n  \npath\n: \n./node_modules/docdash\n\n};\n\ngulp.task('docs', function(){\n  return gulp.src(\n./src/*.js\n)\n    .pipe(jsdoc('./docs', template));\n});\n\n\n\n\nStep 3. Refresh \nGulp\n tasks\n\n\nIn pycharm, click to refresh button in \ngulp\n window.\n\n\nStep 4. Add comment to your code\n\n\nAdd comment to your code, You can see an \nexample: should.js\n\n\n/**\n * Simple utility function for a bit more easier should assertion\n * extension\n * @param {Function} f So called plugin function. It should accept\n * 2 arguments: `should` function and `Assertion` constructor\n * @memberOf should\n * @returns {Function} Returns `should` function\n * @static\n * @example\n *\n * should.use(function(should, Assertion) {\n *   Assertion.add('asset', function() {\n *      this.params = { operator: 'to be asset' };\n *\n *      this.obj.should.have.property('id').which.is.a.Number();\n *      this.obj.should.have.property('path');\n *  })\n * })\n */\nshould.use = function(f) {\n  f(should, should.Assertion);\n  return this;\n};\n\n\n\n\n\nTypes\n: \nboolean\n, \nstring\n, \nnumber\n, \nArray\n (\nsee more\n)\n\n\nStep 5. Run \ndocs\n task\n\n\nIn pycharm, click to \ndocs\n task in \ngulp\n window.", 
             "title": "Documentation"
         }, 
         {
-            "location": "/documentation/#component", 
-            "text": "jsdoc , gulp, PyCharm", 
-            "title": "Component"
+            "location": "/documentation/#components", 
+            "text": "jsdoc  (with  docdash  template)  JSDoc is an API documentation generator for JavaScript, similar to JavaDoc or PHPDoc. You add documentation comments directly to your source code, right along side the code itself. The JSDoc Tool will scan your source code, and generate a complete HTML documentation website for you.  gulp ,  PyCharm", 
+            "title": "Components"
         }, 
         {
             "location": "/documentation/#usage", 
@@ -151,33 +151,33 @@
             "title": "Usage"
         }, 
         {
-            "location": "/documentation/#1-install-gulp-jsdoc", 
-            "text": "npm install --save-dev gulp gulp-jsdoc", 
-            "title": "1. Install gulp-jsdoc"
+            "location": "/documentation/#step-1-install-gulp-jsdoc", 
+            "text": "npm install --save-dev gulp gulp-jsdoc docdash", 
+            "title": "Step 1. Install gulp-jsdoc"
         }, 
         {
-            "location": "/documentation/#2-create-documentation-task-in-gulpfilejs", 
-            "text": "gulp.task('documentation', function(){\n  return gulp\n    .src( ./src/*.js )\n    .pipe(jsdoc('./docs'));\n});", 
-            "title": "2. Create documentation task in gulpfile.js"
+            "location": "/documentation/#step-2-create-documentation-task", 
+            "text": "Create  documentation  task in  gulpfile.js  file  var template = {\n   path :  ./node_modules/docdash \n};\n\ngulp.task('docs', function(){\n  return gulp.src( ./src/*.js )\n    .pipe(jsdoc('./docs', template));\n});", 
+            "title": "Step 2. Create documentation task"
         }, 
         {
-            "location": "/documentation/#3-refresh-gulp-tasks", 
-            "text": "", 
-            "title": "3. Refresh Gulp tasks"
+            "location": "/documentation/#step-3-refresh-gulp-tasks", 
+            "text": "In pycharm, click to refresh button in  gulp  window.", 
+            "title": "Step 3. Refresh Gulp tasks"
         }, 
         {
-            "location": "/documentation/#4-add-documentation-to-your-code-example-shouldjs", 
-            "text": "/**\n * Simple utility function for a bit more easier should assertion\n * extension\n * @param {Function} f So called plugin function. It should accept\n * 2 arguments: `should` function and `Assertion` constructor\n * @memberOf should\n * @returns {Function} Returns `should` function\n * @static\n * @example\n *\n * should.use(function(should, Assertion) {\n *   Assertion.add('asset', function() {\n *      this.params = { operator: 'to be asset' };\n *\n *      this.obj.should.have.property('id').which.is.a.Number();\n *      this.obj.should.have.property('path');\n *  })\n * })\n */\nshould.use = function(f) {\n  f(should, should.Assertion);\n  return this;\n};", 
-            "title": "4. Add documentation to your code (example: should.js)"
+            "location": "/documentation/#step-4-add-comment-to-your-code", 
+            "text": "Add comment to your code, You can see an  example: should.js  /**\n * Simple utility function for a bit more easier should assertion\n * extension\n * @param {Function} f So called plugin function. It should accept\n * 2 arguments: `should` function and `Assertion` constructor\n * @memberOf should\n * @returns {Function} Returns `should` function\n * @static\n * @example\n *\n * should.use(function(should, Assertion) {\n *   Assertion.add('asset', function() {\n *      this.params = { operator: 'to be asset' };\n *\n *      this.obj.should.have.property('id').which.is.a.Number();\n *      this.obj.should.have.property('path');\n *  })\n * })\n */\nshould.use = function(f) {\n  f(should, should.Assertion);\n  return this;\n};  Types :  boolean ,  string ,  number ,  Array  ( see more )", 
+            "title": "Step 4. Add comment to your code"
         }, 
         {
-            "location": "/documentation/#5-run-documentation-task", 
-            "text": "", 
-            "title": "5. Run documentation task"
+            "location": "/documentation/#step-5-run-docs-task", 
+            "text": "In pycharm, click to  docs  task in  gulp  window.", 
+            "title": "Step 5. Run docs task"
         }, 
         {
             "location": "/testing/", 
-            "text": "Mocha\n\n\nMocha is a feature-rich JavaScript test framework running on Node.js and the browser, making asynchronous testing simple and fun. Mocha tests run serially, allowing for flexible and accurate reporting, while mapping uncaught exceptions to the correct test cases.\n\n\nUsage\n\n\n\n\nEdit \nindex.html\n\n\n\n\n[code lang=\"html\" title=\"index.html\" highlight=\"6,9,10,11\"]\n\n!DOCTYPE html\n\n\n\n\n\n  \n\n  \nTests\n\n  \n\n\n\n\n\n  \n\n  \n\n  \n\n  \n\n  \nmocha.setup('bdd')\n\n  \n\n  \nmocha.run();\n\n\n\n\n\n[/code]", 
+            "text": "Mocha\n\n\nMocha is a feature-rich JavaScript test framework running on Node.js and the browser, making asynchronous testing simple and fun. Mocha tests run serially, allowing for flexible and accurate reporting, while mapping uncaught exceptions to the correct test cases.\n\n\nInstallation\n\n\nbower install -D mocha chai\n\n\n\n\nUsage\n\n\nStep 1. Make \nindex.html\n\n\n!DOCTYPE html\n\n\nhtml\n\n\nhead\n\n  \nmeta charset=\nutf-8\n\n  \ntitle\nTests\n/title\n\n  \nlink rel=\nstylesheet\n media=\nall\n href=\nmocha.css\n\n\n/head\n\n\nbody\n\n  \ndiv id=\nmocha\n/div\n\n  \nscript src=\nmocha.js\n/script\n\n  \nscript src=\nchai.js\n/script\n\n  \nscript src=\nfunctions.js\n/script\n\n  \nscript\nmocha.setup('bdd'); chai.should();\n/script\n\n  \nscript src=\ntests.js\n/script\n\n  \nscript\nmocha.run();\n/script\n\n\n/body\n\n\n/html\n\n\n\n\n\nStep 2. Edit \nfunctions.js\n\n\nfunction sum(a, b){\n  return a + b;\n}\n\nfunction asynchronusSum(a, b){\n  return new Promise(function(fulfill, reject){\n    fulfill(a + b);\n  });\n}\n\n\n\n\nStep 3. Edit \ntests.js\n\n\ndescribe('Calculator', function() {\n  this.timeout(5000);\n  describe('#sum()', function() {\n    it('should return sum of two number', function() {\n      sum(2, 3).should.equal(5)\n    });\n  });\n\n  describe('#asynchronusSum()', function() {\n    it('should return sum of two number', function(done) {\n      asynchronusSum(2, 3).then(function(output){\n          output.should.equal(5);\n          done();\n      })\n    });\n  });\n});", 
             "title": "Testing"
         }, 
         {
@@ -186,8 +186,13 @@
             "title": "Mocha"
         }, 
         {
+            "location": "/testing/#installation", 
+            "text": "bower install -D mocha chai", 
+            "title": "Installation"
+        }, 
+        {
             "location": "/testing/#usage", 
-            "text": "Edit  index.html   [code lang=\"html\" title=\"index.html\" highlight=\"6,9,10,11\"] !DOCTYPE html   \n   \n   Tests \n     \n   \n   \n   \n   \n   mocha.setup('bdd') \n   \n   mocha.run();   \n[/code]", 
+            "text": "Step 1. Make  index.html  !DOCTYPE html  html  head \n   meta charset= utf-8 \n   title Tests /title \n   link rel= stylesheet  media= all  href= mocha.css  /head  body \n   div id= mocha /div \n   script src= mocha.js /script \n   script src= chai.js /script \n   script src= functions.js /script \n   script mocha.setup('bdd'); chai.should(); /script \n   script src= tests.js /script \n   script mocha.run(); /script  /body  /html   Step 2. Edit  functions.js  function sum(a, b){\n  return a + b;\n}\n\nfunction asynchronusSum(a, b){\n  return new Promise(function(fulfill, reject){\n    fulfill(a + b);\n  });\n}  Step 3. Edit  tests.js  describe('Calculator', function() {\n  this.timeout(5000);\n  describe('#sum()', function() {\n    it('should return sum of two number', function() {\n      sum(2, 3).should.equal(5)\n    });\n  });\n\n  describe('#asynchronusSum()', function() {\n    it('should return sum of two number', function(done) {\n      asynchronusSum(2, 3).then(function(output){\n          output.should.equal(5);\n          done();\n      })\n    });\n  });\n});", 
             "title": "Usage"
         }, 
         {
@@ -202,8 +207,18 @@
         }, 
         {
             "location": "/build_tool/", 
-            "text": "Gulp\n\n\nAutomate and enhance your workflow\n\n\nHere's some of the sweet stuff you try out with this repo.\n\n\n\n    \nCompile CoffeeScript (with source maps!)\n\n    \nCompile Handlebars Templates\n\n    \nCompile SASS with Compass\n\n    \nLiveReload\n\n    \nrequire non-CommonJS code, with dependencies\n\n    \nSet up module aliases\n\n    \nRun a static Node server (with logging)\n\n    \nPop open your app in a Browser\n\n    \nReport Errors through Notification Center\n\n    \nImage processing\n\n\n\n\n\nWatch\n\n\nvar gulp = require('gulp');\nvar concat = require('gulp-concat');\nvar uglify = require('gulp-uglify');\nvar jsdoc = require(\ngulp-jsdoc\n);\n\nvar third_parties = [\n  \nbower_components/jquery/dist/jquery.js\n,\n  \nbower_components/bootstrap/dist/js/bootstrap.js\n,\n  \nbower_components/underscore/underscore.js\n,\n  \nbower_components/ring/ring.js\n,\n  \nbower_components/moment/moment.js\n,\n  \nbower_components/sprintf/src/sprintf.js\n,\n  \nbower_components/uri.js/src/URI.js\n,\n  \nbower_components/run/run.js\n\n];\n\nvar modules = [\n  \nmodules/....js\n\n];\n\ngulp.watch(third_parties, ['js_thirdparty']);\ngulp.watch(modules, ['js_modules']);\n\ngulp.task('js_thirdparty', function () {\n  return gulp\n    .src(third_parties)\n    .pipe(concat('third_party.uglify.js'))\n    .pipe(uglify())\n    .pipe(gulp.dest('./scripts'));\n});\n\ngulp.task('js_modules', function () {\n  return gulp\n    .src(modules)\n    .pipe(concat('modules.uglify.js'))\n    //.pipe(uglify())\n    .pipe(gulp.dest('./scripts'));\n});\n\ngulp.task('documentation', function () {\n  return gulp\n    .src(\n./modules/*/*.js\n)\n    .pipe(jsdoc('./documentation'));\n});\n\ngulp.task('default', ['js_thirdparty', 'js_modules']);\n\n\n\n\nhttp://gulpjs.com/\n\n\nDeprecated\n\n\ngrunt", 
+            "text": "Gulp\n\n\nAutomate and enhance your workflow\n\n\nHere's some of the sweet stuff you try out with this repo.\n\n\n\n    \nCompile CoffeeScript (with source maps!)\n\n    \nCompile Handlebars Templates\n\n    \nCompile SASS with Compass\n\n    \nLiveReload\n\n    \nrequire non-CommonJS code, with dependencies\n\n    \nSet up module aliases\n\n    \nRun a static Node server (with logging)\n\n    \nPop open your app in a Browser\n\n    \nReport Errors through Notification Center\n\n    \nImage processing\n\n\n\n\n\nInstallation\n\n\nnpm install -S gulp gulp-concat\n\n\n\n\nUsage\n\n\nWatch\n\n\nvar gulp = require('gulp');\nvar concat = require('gulp-concat');\nvar uglify = require('gulp-uglify');\nvar jsdoc = require(\ngulp-jsdoc\n);\n\nvar third_parties = [\n  \nbower_components/jquery/dist/jquery.js\n,\n  \nbower_components/bootstrap/dist/js/bootstrap.js\n,\n  \nbower_components/underscore/underscore.js\n,\n  \nbower_components/ring/ring.js\n,\n  \nbower_components/moment/moment.js\n,\n  \nbower_components/sprintf/src/sprintf.js\n,\n  \nbower_components/uri.js/src/URI.js\n,\n  \nbower_components/run/run.js\n\n];\n\nvar modules = [\n  \nmodules/your_script.js\n\n];\n\ngulp.watch(third_parties, ['js_thirdparty']);\ngulp.watch(modules, ['js_modules']);\n\ngulp.task('js_thirdparty', function () {\n  return gulp\n    .src(third_parties)\n    .pipe(concat('third_party.uglify.js'))\n    .pipe(uglify())\n    .pipe(gulp.dest('./scripts'));\n});\n\ngulp.task('js_modules', function () {\n  return gulp\n    .src(modules)\n    .pipe(concat('modules.uglify.js'))\n    //.pipe(uglify())\n    .pipe(gulp.dest('./scripts'));\n});\n\ngulp.task('documentation', function () {\n  return gulp\n    .src(\n./modules/*/*.js\n)\n    .pipe(jsdoc('./documentation'));\n});\n\ngulp.task('default', ['js_thirdparty', 'js_modules']);\n\n\n\n\nhttp://gulpjs.com/\n\n\nDeprecated\n\n\ngrunt", 
             "title": "Build Tool"
+        }, 
+        {
+            "location": "/build_tool/#installation", 
+            "text": "npm install -S gulp gulp-concat", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/build_tool/#usage", 
+            "text": "Watch  var gulp = require('gulp');\nvar concat = require('gulp-concat');\nvar uglify = require('gulp-uglify');\nvar jsdoc = require( gulp-jsdoc );\n\nvar third_parties = [\n   bower_components/jquery/dist/jquery.js ,\n   bower_components/bootstrap/dist/js/bootstrap.js ,\n   bower_components/underscore/underscore.js ,\n   bower_components/ring/ring.js ,\n   bower_components/moment/moment.js ,\n   bower_components/sprintf/src/sprintf.js ,\n   bower_components/uri.js/src/URI.js ,\n   bower_components/run/run.js \n];\n\nvar modules = [\n   modules/your_script.js \n];\n\ngulp.watch(third_parties, ['js_thirdparty']);\ngulp.watch(modules, ['js_modules']);\n\ngulp.task('js_thirdparty', function () {\n  return gulp\n    .src(third_parties)\n    .pipe(concat('third_party.uglify.js'))\n    .pipe(uglify())\n    .pipe(gulp.dest('./scripts'));\n});\n\ngulp.task('js_modules', function () {\n  return gulp\n    .src(modules)\n    .pipe(concat('modules.uglify.js'))\n    //.pipe(uglify())\n    .pipe(gulp.dest('./scripts'));\n});\n\ngulp.task('documentation', function () {\n  return gulp\n    .src( ./modules/*/*.js )\n    .pipe(jsdoc('./documentation'));\n});\n\ngulp.task('default', ['js_thirdparty', 'js_modules']);  http://gulpjs.com/", 
+            "title": "Usage"
         }, 
         {
             "location": "/build_tool/#deprecated", 
