@@ -1,4 +1,4 @@
-Convert dict to object
+Convert dict to object [^1]
 
 ```python
 class Struct:

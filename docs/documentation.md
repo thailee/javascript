@@ -1,29 +1,40 @@
-## Component
+## Components
 
-[jsdoc](https://github.com/jsdoc3/jsdoc), gulp, PyCharm
+[`jsdoc`](https://github.com/jsdoc3/jsdoc) (with [`docdash`](https://github.com/clenemt/docdash) template)
+
+JSDoc is an API documentation generator for JavaScript, similar to JavaDoc or PHPDoc. You add documentation comments directly to your source code, right along side the code itself. The JSDoc Tool will scan your source code, and generate a complete HTML documentation website for you.
+
+`gulp`, `PyCharm`
 
 ## Usage
 
-### 1. Install `gulp-jsdoc`
+### Step 1. Install `gulp-jsdoc`
 
 ```
-npm install --save-dev gulp gulp-jsdoc
+npm install --save-dev gulp gulp-jsdoc docdash
 ```
 
+### Step 2. Create `documentation` task
 
-### 2. Create `documentation` task in `gulpfile.js`
+Create `documentation` task in `gulpfile.js` file
 
 ```javascript
-gulp.task('documentation', function(){
-  return gulp
-    .src("./src/*.js")
-    .pipe(jsdoc('./docs'));
+var template = {
+  "path": "./node_modules/docdash"
+};
+
+gulp.task('docs', function(){
+  return gulp.src("./src/*.js")
+    .pipe(jsdoc('./docs', template));
 });
 ```
 
-### 3. Refresh `Gulp` tasks
+### Step 3. Refresh `Gulp` tasks
 
-### 4. Add documentation to your code ([example: should.js](https://github.com/shouldjs/should.js/blob/master/lib/should.js))
+In pycharm, click to refresh button in `gulp` window.
+### Step 4. Add comment to your code
+
+Add comment to your code, You can see an [example: should.js](https://github.com/shouldjs/should.js/blob/master/lib/should.js)
 
 ```javascript
 /**
@@ -52,5 +63,8 @@ should.use = function(f) {
 
 ```
 
-### 5. Run `documentation` task
+**Types**: `boolean`, `string`, `number`, `Array` ([see more](https://developers.google.com/closure/compiler/docs/js-for-compiler#types))
 
+### Step 5. Run `docs` task
+
+In pycharm, click to `docs` task in `gulp` window.

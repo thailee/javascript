@@ -17,6 +17,14 @@ Here's some of the sweet stuff you try out with this repo.
     <li>Image processing</li>
 </ul>
 
+## Installation
+
+```
+npm install -S gulp gulp-concat
+```
+
+## Usage
+
 Watch
 
 ```javascript
@@ -37,7 +45,7 @@ var third_parties = [
 ];
 
 var modules = [
-  "modules/....js"
+  "modules/your_script.js"
 ];
 
 gulp.watch(third_parties, ['js_thirdparty']);

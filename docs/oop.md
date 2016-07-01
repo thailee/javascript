@@ -5,7 +5,7 @@
 
 ### Constructor
 
-[code lang="javascript"]
+```
 function Ball(position){
     this.position = position;
     this.display = function(){
@@ -15,12 +15,12 @@ function Ball(position){
 
 ball = new Ball([2, 3]);
 ball.display();
-[/code]
+```
 
 # 2. Inheritance
 
 
-[code lang="javascript"]
+```
 Person = function (name, birthday, job) {
   this.name = name;
   this.birthday = birthday;
@@ -43,7 +43,8 @@ var person1 = new Person("Barack Obama", "04/08/1961", "Politician");
 var person2 = new Politician("David Cameron", "09/10/1966");
 person1.display();
 person2.display();
-[/code]
+
+```
 
 [1]: [Introduction to Object-Oriented JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript)
 [2]: [How to call parent constructor?](http://stackoverflow.com/a/15399594/772391)
