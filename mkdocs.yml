@@ -3,8 +3,11 @@ pages:
 - "Home": 'index.md'
 - "Basic":
   - "101": '101.md'
-  - "201": '201.md'
+  - "Syntax":
+     - "201": '201.md'
+     - "Function": 'data_function.md'
   - "Data Structure":
+     - "Value, Type, and Operator": 'data_value_type_operator.md'
      - "String": 'data_string.md'
      - "Time": 'data_time.md'
      - "Object": 'data_object.md'
