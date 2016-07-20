@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../img/favicon.ico">
 
-	<title>Package Manager - JavascriptTutorial</title>
+	<title>Boolean - JavascriptTutorial</title>
 
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -59,7 +59,7 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Basic <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -93,8 +93,8 @@
 
         
             
-<li >
-    <a href="../data_boolean/">Boolean</a>
+<li class="active">
+    <a href="./">Boolean</a>
 </li>
 
         
@@ -158,13 +158,13 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Advanced <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
-<li class="active">
-    <a href="./">Package Manager</a>
+<li >
+    <a href="../package_manager/">Package Manager</a>
 </li>
 
                         
@@ -195,12 +195,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../testing/">
+                        <a rel="next" href="../data_string/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../build_tool/">
+                        <a rel="prev" href="../data_time/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -216,33 +216,24 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#bower">Bower</a></li>
+        <li class="main active"><a href="#boolean">Boolean</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="bower">Bower</h1>
-<p>A package manager for the web</p>
-<p>Web sites are made of lots of things — frameworks, libraries, assets, utilities, and rainbows. Bower manages all these things for you.</p>
-<p>Bower works by fetching and installing packages from all over, taking care of hunting, finding, downloading, and saving the stuff you’re looking for. Bower keeps track of these packages in a manifest file, bower.json. How you use packages is up to you. Bower provides hooks to facilitate using packages in your tools and workflows.</p>
-<p>Bower is optimized for the front-end. Bower uses a flat dependency tree, requiring only one version for each package, reducing page load to a minimum.</p>
-<p><a href="http://bower.io/" target="_blank">http://bower.io/</a></p>
-<p>[code]
-bower install jquery underscore moment sprintf -S
-[/code]</p>
-<p><strong>HTML <code>&lt;bower based&gt;</code></strong></p>
-<pre><code class="html">&lt;script src=&quot;./bower_components/jquery/dist/jquery.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;./bower_components/moment/moment.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;./bower_components/underscore/underscore.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;./bower_components/sprintf/src/sprintf.js&quot;&gt;&lt;/script&gt;
+<h1 id="boolean">Boolean</h1>
+<p>Boolean has only 2 values: true and false</p>
+<pre><code class="javascript">console.log(&quot;Abc&quot; &lt; &quot;Abcd&quot;) // -&gt; true
+console.log(&quot;abc&quot; &lt; &quot;Abcd&quot;) // -&gt; false
+console.log(&quot;123&quot; == &quot;123&quot;) // -&gt; true
+console.log(NaN == NaN) // -&gt; false
 </code></pre>
 
-<p><strong>HTML <code>&lt;cdn based&gt;</code></strong></p>
-<pre><code class="html">&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/sprintf/1.0.3/sprintf.js&quot;&gt;&lt;/script&gt;
+<p>what is the different?</p>
+<pre><code class="javascript">console.log(&quot;5&quot; == 5);
+console.log(&quot;5&quot; === 5);
 </code></pre></div>
             
         </div>

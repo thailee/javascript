@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../img/favicon.ico">
 
-	<title>201 - JavascriptTutorial</title>
+	<title>Syntax - JavascriptTutorial</title>
 
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -71,7 +71,7 @@
                         
                             
 <li class="active">
-    <a href="./">201</a>
+    <a href="./">Syntax</a>
 </li>
 
                         
@@ -82,7 +82,19 @@
         
             
 <li >
+    <a href="../data_number/">Number</a>
+</li>
+
+        
+            
+<li >
     <a href="../data_string/">String</a>
+</li>
+
+        
+            
+<li >
+    <a href="../data_boolean/">Boolean</a>
 </li>
 
         
@@ -188,7 +200,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../data_string/">
+                        <a rel="prev" href="../data_number/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -216,12 +228,36 @@
         
             <li><a href="#32-method-comment">3.2 Method Comment</a></li>
         
-            <li><a href="#multiline-string">Multiline String</a></li>
+    
+        <li class="main "><a href="#4-expression-and-statements">4. Expression and Statements</a></li>
+        
+            <li><a href="#expression">Expression</a></li>
+        
+            <li><a href="#statements">Statements</a></li>
         
     
-        <li class="main "><a href="#4-functions">4. Functions</a></li>
+        <li class="main "><a href="#5-loop-and-iteration">5. Loop and iteration</a></li>
         
-            <li><a href="#41-define-and-call-a-function">4.1 Define and call a function</a></li>
+            <li><a href="#while">while</a></li>
+        
+            <li><a href="#dowhile">do..while</a></li>
+        
+            <li><a href="#for">for</a></li>
+        
+    
+        <li class="main "><a href="#6-function">6. Function</a></li>
+        
+            <li><a href="#61-defining-a-function">6.1 Defining a Function</a></li>
+        
+            <li><a href="#62-scope">6.2 Scope</a></li>
+        
+            <li><a href="#63-call-stack">6.3 Call Stack</a></li>
+        
+            <li><a href="#64-optional-argument">6.4. Optional Argument</a></li>
+        
+            <li><a href="#65-closure">6.5 Closure</a></li>
+        
+            <li><a href="#66-recursion">6.6. Recursion</a></li>
         
     
     </ul>
@@ -295,21 +331,198 @@ function PR_someMethod(obj) {
 }
 </code></pre>
 
-<h3 id="multiline-string">Multiline String</h3>
-<pre><code class="javascript">str = &quot;\
-line 1\
-line 2\
-line 3&quot;;
+<h2 id="4-expression-and-statements">4. Expression and Statements</h2>
+<h4 id="expression">Expression</h4>
+<p><em>A fragment of code that produces a value is called an Expression</em></p>
+<pre><code class="javascript">22
+&quot;this is an epression&quot;
+(5 &gt; 6) ? false : true
 </code></pre>
 
-<h1 id="4-functions">4. Functions</h1>
-<h2 id="41-define-and-call-a-function">4.1 Define and call a function</h2>
-<pre><code class="javascript">function sum(a, b) {
-  var c = a + b;
-  return c;
+<h4 id="statements">Statements</h4>
+<p>The Simplest kind of stagement is an expression with a semi colon</p>
+<pre><code class="javascript">!false;
+5 + 6;
+</code></pre>
+
+<h2 id="5-loop-and-iteration">5. Loop and iteration</h2>
+<h4 id="while">while</h4>
+<pre><code class="javacript">var number = 0;
+while (number &lt;= 12) {
+  console.log(number);
+  number = number + 2;
+}
+</code></pre>
+
+<h4 id="dowhile">do..while</h4>
+<pre><code class="javascript">do {
+  var yourName = prompt(&quot;Who are you?&quot;);
+} while (!yourName);
+console.log(yourName);
+</code></pre>
+
+<h4 id="for">for</h4>
+<pre><code class="javascript">for (var i = 0; i &lt; 10; i++) {
+  console.log(i);
+}
+</code></pre>
+
+<h2 id="6-function">6. Function</h2>
+<h3 id="61-defining-a-function">6.1 Defining a Function</h3>
+<pre><code class="javascript">var square = function(x) {
+  return x * x;
+};
+square(5);
+</code></pre>
+
+<h3 id="62-scope">6.2 Scope</h3>
+<h5 id="scope-is-the-area-where-contains-all-variable-or-function-are-living">Scope is the area where contains all variable or function are living. </br></h5>
+<h5 id="scope-has-some-rules">Scope has some rules:</h5>
+<ul>
+<li>Child Scope can access all variable and function in parent Scope. (E.g: Local Scope can access Global Scope)</li>
+</ul>
+<pre><code class="javascrpit">function saveName(firstName) {
+    var temp = &quot;temp&quot;;
+    function capitalizeName() {
+        temp = temp + &quot; here&quot;;
+        return firstName.toUpperCase();
+    }
+    var capitalized = capitalizeName();
+    return capitalized;
+}
+alert(saveName(&quot;Robert&quot;));
+</code></pre>
+
+<ul>
+<li>But parent Scope can access variable and function inside children scope (E.g: Global Scope cannot acces to local Scope)</li>
+</ul>
+<pre><code class="javascript">function talkDirty () {
+    var saying = &quot;Oh, you little VB lover, you&quot;;
+    return alert(saying);
+}
+alert(saying); //-&gt;Error
+</code></pre>
+
+<h3 id="63-call-stack">6.3 Call Stack</h3>
+<p>The storage where computer stores context is called CALL STACK.</p>
+<pre><code class="javascript">// CALL STACK
+function greet(who) {
+    console.log(&quot;Hello &quot; + who);
+    ask(&quot;How are you?&quot;);
+    console.log(&quot;I'm fine&quot;);
+};
+
+function ask(question) {
+    console.log(&quot;well, &quot; + question);
+};
+
+greet(&quot;Harry&quot;);
+console.log(&quot;Bye&quot;);
+</code></pre>
+
+<p>Out of Call Stack</p>
+<pre><code class="javascript">function chicken() {
+    return egg();
 }
 
-var result = sum(1, 2);
+function egg() {
+    return chicken();
+}
+console.log(chicken() + &quot; came first&quot;);
+</code></pre>
+
+<h3 id="64-optional-argument">6.4. Optional Argument</h3>
+<h4 id="we-can-pass-too-many-or-too-few-arguments-to-the-function-without-any-syntaxerror">We can pass too many or too few arguments to the function without any SyntaxError.</h4>
+<ul>
+<li>If we pass too much arguments, the extra ones are ignored</li>
+<li>If we pass to few arguments, the missing ones get value undefined</li>
+</ul>
+<pre><code class="javascript">function power(base, exponent) {
+    if (exponent == undefined) {
+        exponent = 2;
+    }
+    var result = 1;
+    for (var count = 0; count &lt; exponent; count++) {
+        result = result * base;
+    }
+    return result;
+}
+console.log(power(4)); 
+console.log(power(4,3));
+</code></pre>
+
+<p><strong>upside</strong>: flexible </br>
+<strong>downside</strong>: hard to control the error</p>
+<h3 id="65-closure">6.5 Closure</h3>
+<p>Look at this example:</p>
+<pre><code class="javascript">function sayHello(name){
+    var text = 'Hello' + name;
+    var say = function(){
+        console.log(text);
+    }
+    return say;
+}
+var say2 = sayHello(&quot;ahaha&quot;);
+say2();
+</code></pre>
+
+<p>if in C program, does say2() work? <br/>
+The answer is nope! Because in C program, when a function returns, the Stack-flame will be destroyed, and all the local variable such as <em>text</em> will undefinded. So, when say2() is called, there is no text anymore, and the error, will be shown! </br>
+But, in JavaScript, This code works!! Because, it provides for us an Object called Closure! Closure is borned when we define a function in another function, it keep all the live local variable. So, when say2() is called, the closure will give all the value of local variable outside it, and text will be identity.!</p>
+<pre><code class="javascript">var globalVariable = 10;
+function func(){
+    var name = &quot;xxx&quot;;
+    function getName(){
+        return name;
+    }
+    function speak(){
+        var sound = &quot;alo&quot;;
+        function scream(){
+            console.log(globalVariable);
+            console.log(name);
+            return &quot;aaaaaaaaaa!&quot;;
+        }
+        function talk(){
+            var voice = getName() + &quot; speak &quot; + sound;
+            console.log(voice);
+            return voice;
+        }
+        scream();
+        talk();
+    }
+    speak();
+}
+func();
+</code></pre>
+
+<h3 id="66-recursion">6.6. Recursion</h3>
+<p>Recursion is  function can call itself, as long as it is not overflow</p>
+<pre><code class="javascript">function power(base, exponent){
+    if (exponent == 0){
+        return 1;
+    }
+    else{
+        return base * power(base, exponent -1);
+    } 
+}
+console.log(power(2,3));
+
+function FindSolution(target){
+    function Find(start, history){
+        if (start == target){
+            return history;
+        }
+        else if (start &gt; target){
+            return null;
+        } 
+        else{
+            return Find(start + 5, &quot;(&quot; + history + &quot; + 5 &quot;) ||
+            Find(start * 3, &quot;(&quot; + history + &quot; * 3)&quot;);
+        }
+    }
+    return Find(1, &quot;1&quot;);
+}
+console.log(FindSolution(25));   
 </code></pre>
 
 <div class="footnote">
