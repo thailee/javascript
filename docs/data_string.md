@@ -30,3 +30,12 @@ var users = [
 sprintf("Hello %(users[0].name)s and %(users[1].name)s", {users: users})
 # Hello Dolly and Molly
 ```
+
+### Multiline String
+
+```javascript
+str = "\
+line 1\
+line 2\
+line 3";
+```
