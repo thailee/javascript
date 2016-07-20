@@ -12,18 +12,38 @@
         }, 
         {
             "location": "/101/", 
-            "text": "Javascript", 
+            "text": "Beginning of Javascript\n\n\nInstallation (Environment, IDE)\n\n\n\n\ngoogle chrome\n\n\npycharm project\n\n\n... \n\n\n\n\nCourses, books\n\n\nCourses:\n\n\n\n\nCodeAcademy's Course\n\n\n\n\nBooks:\n\n\n\n\nEloquentJavascript", 
             "title": "101"
         }, 
         {
-            "location": "/101/#javascript", 
+            "location": "/101/#beginning-of-javascript", 
             "text": "", 
-            "title": "Javascript"
+            "title": "Beginning of Javascript"
+        }, 
+        {
+            "location": "/101/#installation-environment-ide", 
+            "text": "google chrome  pycharm project  ...", 
+            "title": "Installation (Environment, IDE)"
+        }, 
+        {
+            "location": "/101/#courses-books", 
+            "text": "", 
+            "title": "Courses, books"
+        }, 
+        {
+            "location": "/101/#courses", 
+            "text": "CodeAcademy's Course", 
+            "title": "Courses:"
+        }, 
+        {
+            "location": "/101/#books", 
+            "text": "EloquentJavascript", 
+            "title": "Books:"
         }, 
         {
             "location": "/201/", 
-            "text": "1. Code Formatting\n\n\nIndent with 2 spaces\n\n\n// Object initializer.\nvar inset = {\n  top: 10,\n  right: 20,\n  bottom: 15,\n  left: 12\n};\n\n// Array initializer.\nthis.rows_ = [\n  '\nSlartibartfast\n \nfjordmaster@magrathea.com\n',\n  '\nZaphod Beeblebrox\n \ntheprez@universe.gov\n',\n  '\nFord Prefect\n \nford@theguide.com\n',\n  '\nArthur Dent\n \nhas.no.tea@gmail.com\n',\n  '\nMarvin the Paranoid Android\n \nmarv@googlemail.com\n',\n  'the.mice@magrathea.com'\n];\n\n// Used in a method call.\ngoog.dom.createDom(goog.dom.TagName.DIV, {\n  id: 'foo',\n  className: 'some-css-class',\n  style: 'display:none'\n}, 'Hello, world!');\n\n\n\n\n2. Naming\n\n\nfunctionNamesLikeThis\nvariableNamesLikeThis\nClassNamesLikeThis\nEnumNamesLikeThis\nmethodNamesLikeThis\nCONSTANT_VALUES_LIKE_THIS\nfoo.namespaceNamesLikeThis.bar\nfilenameslikethis.js.\n\n\n\n\n3. Comment\n\n\nUse \nJSDoc\n\n\n3.1 Class Comment\n\n\n/**\n * Class making something fun and easy.\n * @param {string} arg1 An argument that makes this more interesting.\n * @param {Array.\nnumber\n} arg2 List of numbers to be processed.\n * @constructor\n * @extends {goog.Disposable}\n */\nproject.MyClass = function(arg1, arg2) {\n  // ...\n};\ngoog.inherits(project.MyClass, goog.Disposable);\n\n\n\n\n3.2 Method Comment\n\n\n/**\n * Operates on an instance of MyClass and returns something.\n * @param {project.MyClass} obj Instance of MyClass which leads to a long\n *     comment that needs to be wrapped to two lines.\n * @return {boolean} Whether something occurred.\n */\nfunction PR_someMethod(obj) {\n  // ...\n}\n\n\n\n\nMultiline String\n\n\nstr = \n\\\nline 1\\\nline 2\\\nline 3\n;\n\n\n\n\n4. Functions\n\n\n4.1 Define and call a function\n\n\nfunction sum(a, b) {\n  var c = a + b;\n  return c;\n}\n\nvar result = sum(1, 2);\n\n\n\n\n\n\n\n\n\n\n\n\nWhat's the cleanest way to write a multiline string in JavaScript? [duplicate]\n\n\n\n\n\n\nGoogle JavaScript Style Guide", 
-            "title": "201"
+            "text": "1. Code Formatting\n\n\nIndent with 2 spaces\n\n\n// Object initializer.\nvar inset = {\n  top: 10,\n  right: 20,\n  bottom: 15,\n  left: 12\n};\n\n// Array initializer.\nthis.rows_ = [\n  '\nSlartibartfast\n \nfjordmaster@magrathea.com\n',\n  '\nZaphod Beeblebrox\n \ntheprez@universe.gov\n',\n  '\nFord Prefect\n \nford@theguide.com\n',\n  '\nArthur Dent\n \nhas.no.tea@gmail.com\n',\n  '\nMarvin the Paranoid Android\n \nmarv@googlemail.com\n',\n  'the.mice@magrathea.com'\n];\n\n// Used in a method call.\ngoog.dom.createDom(goog.dom.TagName.DIV, {\n  id: 'foo',\n  className: 'some-css-class',\n  style: 'display:none'\n}, 'Hello, world!');\n\n\n\n\n2. Naming\n\n\nfunctionNamesLikeThis\nvariableNamesLikeThis\nClassNamesLikeThis\nEnumNamesLikeThis\nmethodNamesLikeThis\nCONSTANT_VALUES_LIKE_THIS\nfoo.namespaceNamesLikeThis.bar\nfilenameslikethis.js.\n\n\n\n\n3. Comment\n\n\nUse \nJSDoc\n\n\n3.1 Class Comment\n\n\n/**\n * Class making something fun and easy.\n * @param {string} arg1 An argument that makes this more interesting.\n * @param {Array.\nnumber\n} arg2 List of numbers to be processed.\n * @constructor\n * @extends {goog.Disposable}\n */\nproject.MyClass = function(arg1, arg2) {\n  // ...\n};\ngoog.inherits(project.MyClass, goog.Disposable);\n\n\n\n\n3.2 Method Comment\n\n\n/**\n * Operates on an instance of MyClass and returns something.\n * @param {project.MyClass} obj Instance of MyClass which leads to a long\n *     comment that needs to be wrapped to two lines.\n * @return {boolean} Whether something occurred.\n */\nfunction PR_someMethod(obj) {\n  // ...\n}\n\n\n\n\n4. Expression and Statements\n\n\nExpression\n\n\nA fragment of code that produces a value is called an Expression\n\n\n22\n\nthis is an epression\n\n(5 \n 6) ? false : true\n\n\n\n\nStatements\n\n\nThe Simplest kind of stagement is an expression with a semi colon\n\n\n!false;\n5 + 6;\n\n\n\n\n5. Loop and iteration\n\n\nwhile\n\n\nvar number = 0;\nwhile (number \n= 12) {\n  console.log(number);\n  number = number + 2;\n}\n\n\n\n\ndo..while\n\n\ndo {\n  var yourName = prompt(\nWho are you?\n);\n} while (!yourName);\nconsole.log(yourName);\n\n\n\n\nfor\n\n\nfor (var i = 0; i \n 10; i++) {\n  console.log(i);\n}\n\n\n\n\n6. Function\n\n\n6.1 Defining a Function\n\n\nvar square = function(x) {\n  return x * x;\n};\nsquare(5);\n\n\n\n\n6.2 Scope\n\n\nScope is the area where contains all variable or function are living. \n\n\nScope has some rules:\n\n\n\n\nChild Scope can access all variable and function in parent Scope. (E.g: Local Scope can access Global Scope)\n\n\n\n\nfunction saveName(firstName) {\n    var temp = \ntemp\n;\n    function capitalizeName() {\n        temp = temp + \n here\n;\n        return firstName.toUpperCase();\n    }\n    var capitalized = capitalizeName();\n    return capitalized;\n}\nalert(saveName(\nRobert\n));\n\n\n\n\n\n\nBut parent Scope can access variable and function inside children scope (E.g: Global Scope cannot acces to local Scope)\n\n\n\n\nfunction talkDirty () {\n    var saying = \nOh, you little VB lover, you\n;\n    return alert(saying);\n}\nalert(saying); //-\nError\n\n\n\n\n6.3 Call Stack\n\n\nThe storage where computer stores context is called CALL STACK.\n\n\n// CALL STACK\nfunction greet(who) {\n    console.log(\nHello \n + who);\n    ask(\nHow are you?\n);\n    console.log(\nI'm fine\n);\n};\n\nfunction ask(question) {\n    console.log(\nwell, \n + question);\n};\n\ngreet(\nHarry\n);\nconsole.log(\nBye\n);\n\n\n\n\nOut of Call Stack\n\n\nfunction chicken() {\n    return egg();\n}\n\nfunction egg() {\n    return chicken();\n}\nconsole.log(chicken() + \n came first\n);\n\n\n\n\n6.4. Optional Argument\n\n\nWe can pass too many or too few arguments to the function without any SyntaxError.\n\n\n\n\nIf we pass too much arguments, the extra ones are ignored\n\n\nIf we pass to few arguments, the missing ones get value undefined\n\n\n\n\nfunction power(base, exponent) {\n    if (exponent == undefined) {\n        exponent = 2;\n    }\n    var result = 1;\n    for (var count = 0; count \n exponent; count++) {\n        result = result * base;\n    }\n    return result;\n}\nconsole.log(power(4)); \nconsole.log(power(4,3));\n\n\n\n\nupside\n: flexible \n\n\ndownside\n: hard to control the error\n\n\n6.5 Closure\n\n\nLook at this example:\n\n\nfunction sayHello(name){\n    var text = 'Hello' + name;\n    var say = function(){\n        console.log(text);\n    }\n    return say;\n}\nvar say2 = sayHello(\nahaha\n);\nsay2();\n\n\n\n\nif in C program, does say2() work? \n\nThe answer is nope! Because in C program, when a function returns, the Stack-flame will be destroyed, and all the local variable such as \ntext\n will undefinded. So, when say2() is called, there is no text anymore, and the error, will be shown! \n\nBut, in JavaScript, This code works!! Because, it provides for us an Object called Closure! Closure is borned when we define a function in another function, it keep all the live local variable. So, when say2() is called, the closure will give all the value of local variable outside it, and text will be identity.!\n\n\nvar globalVariable = 10;\nfunction func(){\n    var name = \nxxx\n;\n    function getName(){\n        return name;\n    }\n    function speak(){\n        var sound = \nalo\n;\n        function scream(){\n            console.log(globalVariable);\n            console.log(name);\n            return \naaaaaaaaaa!\n;\n        }\n        function talk(){\n            var voice = getName() + \n speak \n + sound;\n            console.log(voice);\n            return voice;\n        }\n        scream();\n        talk();\n    }\n    speak();\n}\nfunc();\n\n\n\n\n6.6. Recursion\n\n\nRecursion is  function can call itself, as long as it is not overflow\n\n\nfunction power(base, exponent){\n    if (exponent == 0){\n        return 1;\n    }\n    else{\n        return base * power(base, exponent -1);\n    } \n}\nconsole.log(power(2,3));\n\nfunction FindSolution(target){\n    function Find(start, history){\n        if (start == target){\n            return history;\n        }\n        else if (start \n target){\n            return null;\n        } \n        else{\n            return Find(start + 5, \n(\n + history + \n + 5 \n) ||\n            Find(start * 3, \n(\n + history + \n * 3)\n);\n        }\n    }\n    return Find(1, \n1\n);\n}\nconsole.log(FindSolution(25));   \n\n\n\n\n\n\n\n\n\n\n\n\nWhat's the cleanest way to write a multiline string in JavaScript? [duplicate]\n\n\n\n\n\n\nGoogle JavaScript Style Guide", 
+            "title": "Syntax"
         }, 
         {
             "location": "/201/#1-code-formatting", 
@@ -51,29 +71,124 @@
             "title": "3.2 Method Comment"
         }, 
         {
-            "location": "/201/#multiline-string", 
-            "text": "str =  \\\nline 1\\\nline 2\\\nline 3 ;", 
-            "title": "Multiline String"
-        }, 
-        {
-            "location": "/201/#4-functions", 
+            "location": "/201/#4-expression-and-statements", 
             "text": "", 
-            "title": "4. Functions"
+            "title": "4. Expression and Statements"
         }, 
         {
-            "location": "/201/#41-define-and-call-a-function", 
-            "text": "function sum(a, b) {\n  var c = a + b;\n  return c;\n}\n\nvar result = sum(1, 2);      What's the cleanest way to write a multiline string in JavaScript? [duplicate]    Google JavaScript Style Guide", 
-            "title": "4.1 Define and call a function"
+            "location": "/201/#expression", 
+            "text": "A fragment of code that produces a value is called an Expression  22 this is an epression \n(5   6) ? false : true", 
+            "title": "Expression"
+        }, 
+        {
+            "location": "/201/#statements", 
+            "text": "The Simplest kind of stagement is an expression with a semi colon  !false;\n5 + 6;", 
+            "title": "Statements"
+        }, 
+        {
+            "location": "/201/#5-loop-and-iteration", 
+            "text": "", 
+            "title": "5. Loop and iteration"
+        }, 
+        {
+            "location": "/201/#while", 
+            "text": "var number = 0;\nwhile (number  = 12) {\n  console.log(number);\n  number = number + 2;\n}", 
+            "title": "while"
+        }, 
+        {
+            "location": "/201/#dowhile", 
+            "text": "do {\n  var yourName = prompt( Who are you? );\n} while (!yourName);\nconsole.log(yourName);", 
+            "title": "do..while"
+        }, 
+        {
+            "location": "/201/#for", 
+            "text": "for (var i = 0; i   10; i++) {\n  console.log(i);\n}", 
+            "title": "for"
+        }, 
+        {
+            "location": "/201/#6-function", 
+            "text": "", 
+            "title": "6. Function"
+        }, 
+        {
+            "location": "/201/#61-defining-a-function", 
+            "text": "var square = function(x) {\n  return x * x;\n};\nsquare(5);", 
+            "title": "6.1 Defining a Function"
+        }, 
+        {
+            "location": "/201/#62-scope", 
+            "text": "", 
+            "title": "6.2 Scope"
+        }, 
+        {
+            "location": "/201/#scope-is-the-area-where-contains-all-variable-or-function-are-living", 
+            "text": "", 
+            "title": "Scope is the area where contains all variable or function are living. "
+        }, 
+        {
+            "location": "/201/#scope-has-some-rules", 
+            "text": "Child Scope can access all variable and function in parent Scope. (E.g: Local Scope can access Global Scope)   function saveName(firstName) {\n    var temp =  temp ;\n    function capitalizeName() {\n        temp = temp +   here ;\n        return firstName.toUpperCase();\n    }\n    var capitalized = capitalizeName();\n    return capitalized;\n}\nalert(saveName( Robert ));   But parent Scope can access variable and function inside children scope (E.g: Global Scope cannot acces to local Scope)   function talkDirty () {\n    var saying =  Oh, you little VB lover, you ;\n    return alert(saying);\n}\nalert(saying); //- Error", 
+            "title": "Scope has some rules:"
+        }, 
+        {
+            "location": "/201/#63-call-stack", 
+            "text": "The storage where computer stores context is called CALL STACK.  // CALL STACK\nfunction greet(who) {\n    console.log( Hello   + who);\n    ask( How are you? );\n    console.log( I'm fine );\n};\n\nfunction ask(question) {\n    console.log( well,   + question);\n};\n\ngreet( Harry );\nconsole.log( Bye );  Out of Call Stack  function chicken() {\n    return egg();\n}\n\nfunction egg() {\n    return chicken();\n}\nconsole.log(chicken() +   came first );", 
+            "title": "6.3 Call Stack"
+        }, 
+        {
+            "location": "/201/#64-optional-argument", 
+            "text": "", 
+            "title": "6.4. Optional Argument"
+        }, 
+        {
+            "location": "/201/#we-can-pass-too-many-or-too-few-arguments-to-the-function-without-any-syntaxerror", 
+            "text": "If we pass too much arguments, the extra ones are ignored  If we pass to few arguments, the missing ones get value undefined   function power(base, exponent) {\n    if (exponent == undefined) {\n        exponent = 2;\n    }\n    var result = 1;\n    for (var count = 0; count   exponent; count++) {\n        result = result * base;\n    }\n    return result;\n}\nconsole.log(power(4)); \nconsole.log(power(4,3));  upside : flexible   downside : hard to control the error", 
+            "title": "We can pass too many or too few arguments to the function without any SyntaxError."
+        }, 
+        {
+            "location": "/201/#65-closure", 
+            "text": "Look at this example:  function sayHello(name){\n    var text = 'Hello' + name;\n    var say = function(){\n        console.log(text);\n    }\n    return say;\n}\nvar say2 = sayHello( ahaha );\nsay2();  if in C program, does say2() work?  \nThe answer is nope! Because in C program, when a function returns, the Stack-flame will be destroyed, and all the local variable such as  text  will undefinded. So, when say2() is called, there is no text anymore, and the error, will be shown!  \nBut, in JavaScript, This code works!! Because, it provides for us an Object called Closure! Closure is borned when we define a function in another function, it keep all the live local variable. So, when say2() is called, the closure will give all the value of local variable outside it, and text will be identity.!  var globalVariable = 10;\nfunction func(){\n    var name =  xxx ;\n    function getName(){\n        return name;\n    }\n    function speak(){\n        var sound =  alo ;\n        function scream(){\n            console.log(globalVariable);\n            console.log(name);\n            return  aaaaaaaaaa! ;\n        }\n        function talk(){\n            var voice = getName() +   speak   + sound;\n            console.log(voice);\n            return voice;\n        }\n        scream();\n        talk();\n    }\n    speak();\n}\nfunc();", 
+            "title": "6.5 Closure"
+        }, 
+        {
+            "location": "/201/#66-recursion", 
+            "text": "Recursion is  function can call itself, as long as it is not overflow  function power(base, exponent){\n    if (exponent == 0){\n        return 1;\n    }\n    else{\n        return base * power(base, exponent -1);\n    } \n}\nconsole.log(power(2,3));\n\nfunction FindSolution(target){\n    function Find(start, history){\n        if (start == target){\n            return history;\n        }\n        else if (start   target){\n            return null;\n        } \n        else{\n            return Find(start + 5,  (  + history +   + 5  ) ||\n            Find(start * 3,  (  + history +   * 3) );\n        }\n    }\n    return Find(1,  1 );\n}\nconsole.log(FindSolution(25));         What's the cleanest way to write a multiline string in JavaScript? [duplicate]    Google JavaScript Style Guide", 
+            "title": "6.6. Recursion"
+        }, 
+        {
+            "location": "/data_number/", 
+            "text": "Number\n\n\nSome example of number: \n10, 1.234, 1.99e9, NaN, Infinity, -Infinity\n\n\nconsole.log(2.99e9);\nconsole.log(0 /0);\nconsole.log(1 /0);\nconsole.log(-1 /0);\n\n\n\n\nAutomatic Conversion\n```javascript\nconsole.log(8 * null); // -\n 0\nconsole.log(\"5\" - 1); // -\n 4\nconsole.log(\"5\" + 1); //-\n 51\nconsole.log(false == 0) //-\n true", 
+            "title": "Number"
+        }, 
+        {
+            "location": "/data_number/#number", 
+            "text": "Some example of number:  10, 1.234, 1.99e9, NaN, Infinity, -Infinity  console.log(2.99e9);\nconsole.log(0 /0);\nconsole.log(1 /0);\nconsole.log(-1 /0);  Automatic Conversion\n```javascript\nconsole.log(8 * null); // -  0\nconsole.log(\"5\" - 1); // -  4\nconsole.log(\"5\" + 1); //-  51\nconsole.log(false == 0) //-  true", 
+            "title": "Number"
         }, 
         {
             "location": "/data_string/", 
-            "text": "sprintf\n\n\nIn \nindex.html\n\n\nscript src=\ncdnjs.cloudflare.com/ajax/libs/sprintf/1.0.3/sprintf.js\n/\n\n\n\n\n\n\nIn \nscript.js\n\n\n// arguments\nsprintf(\n%1$s %2$s\n, \nhello\n, \nsprintf\n)\n# hello sprintf\n\n// object\nvar user = {\n    name: \nDolly\n\n}\nsprintf(\nHello %(name)s\n, user)\n# Hello Dolly\n\n// array of object\nvar users = [\n    {name: \nDolly\n},\n    {name: \nMolly\n}\n]\nsprintf(\nHello %(users[0].name)s and %(users[1].name)s\n, {users: users})\n# Hello Dolly and Molly", 
+            "text": "sprintf\n\n\nIn \nindex.html\n\n\nscript src=\ncdnjs.cloudflare.com/ajax/libs/sprintf/1.0.3/sprintf.js\n/\n\n\n\n\n\n\nIn \nscript.js\n\n\n// arguments\nsprintf(\n%1$s %2$s\n, \nhello\n, \nsprintf\n)\n# hello sprintf\n\n// object\nvar user = {\n    name: \nDolly\n\n}\nsprintf(\nHello %(name)s\n, user)\n# Hello Dolly\n\n// array of object\nvar users = [\n    {name: \nDolly\n},\n    {name: \nMolly\n}\n]\nsprintf(\nHello %(users[0].name)s and %(users[1].name)s\n, {users: users})\n# Hello Dolly and Molly\n\n\n\n\nMultiline String\n\n\nstr = \n\\\nline 1\\\nline 2\\\nline 3\n;", 
             "title": "String"
         }, 
         {
             "location": "/data_string/#sprintf", 
             "text": "In  index.html  script src= cdnjs.cloudflare.com/ajax/libs/sprintf/1.0.3/sprintf.js /   In  script.js  // arguments\nsprintf( %1$s %2$s ,  hello ,  sprintf )\n# hello sprintf\n\n// object\nvar user = {\n    name:  Dolly \n}\nsprintf( Hello %(name)s , user)\n# Hello Dolly\n\n// array of object\nvar users = [\n    {name:  Dolly },\n    {name:  Molly }\n]\nsprintf( Hello %(users[0].name)s and %(users[1].name)s , {users: users})\n# Hello Dolly and Molly", 
             "title": "sprintf"
+        }, 
+        {
+            "location": "/data_string/#multiline-string", 
+            "text": "str =  \\\nline 1\\\nline 2\\\nline 3 ;", 
+            "title": "Multiline String"
+        }, 
+        {
+            "location": "/data_boolean/", 
+            "text": "Boolean\n\n\nBoolean has only 2 values: true and false\n\n\nconsole.log(\nAbc\n \n \nAbcd\n) // -\n true\nconsole.log(\nabc\n \n \nAbcd\n) // -\n false\nconsole.log(\n123\n == \n123\n) // -\n true\nconsole.log(NaN == NaN) // -\n false\n\n\n\n\nwhat is the different?\n\n\nconsole.log(\n5\n == 5);\nconsole.log(\n5\n === 5);", 
+            "title": "Boolean"
+        }, 
+        {
+            "location": "/data_boolean/#boolean", 
+            "text": "Boolean has only 2 values: true and false  console.log( Abc     Abcd ) // -  true\nconsole.log( abc     Abcd ) // -  false\nconsole.log( 123  ==  123 ) // -  true\nconsole.log(NaN == NaN) // -  false  what is the different?  console.log( 5  == 5);\nconsole.log( 5  === 5);", 
+            "title": "Boolean"
         }, 
         {
             "location": "/data_time/", 
@@ -112,7 +227,7 @@
         }, 
         {
             "location": "/networking/", 
-            "text": "REST\n\n\nPOST\n\n\n[code lang=\"javascript\"]\n$.ajax({\n  type: \"POST\",\n  url: \"http://service.com/items\",\n  data: JSON.stringify({\"name\": \"new item\"}),\n  contentType: 'application/json'\n}).done(function (data) {\n  console.log(data)\n}).fail(function () {\n});\n[/code]", 
+            "text": "REST\n\n\nPOST\n\n\n$.ajax({\n  type: \nPOST\n,\n  url: \nhttp://service.com/items\n,\n  data: JSON.stringify({\nname\n: \nnew item\n}),\n  contentType: 'application/json'\n}).done(function (data) {\n  console.log(data)\n}).fail(function () {\n});", 
             "title": "Networking"
         }, 
         {
@@ -122,7 +237,7 @@
         }, 
         {
             "location": "/networking/#post", 
-            "text": "[code lang=\"javascript\"]\n$.ajax({\n  type: \"POST\",\n  url: \"http://service.com/items\",\n  data: JSON.stringify({\"name\": \"new item\"}),\n  contentType: 'application/json'\n}).done(function (data) {\n  console.log(data)\n}).fail(function () {\n});\n[/code]", 
+            "text": "$.ajax({\n  type:  POST ,\n  url:  http://service.com/items ,\n  data: JSON.stringify({ name :  new item }),\n  contentType: 'application/json'\n}).done(function (data) {\n  console.log(data)\n}).fail(function () {\n});", 
             "title": "POST"
         }, 
         {

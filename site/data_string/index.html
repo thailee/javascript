@@ -71,7 +71,7 @@
                         
                             
 <li >
-    <a href="../201/">201</a>
+    <a href="../201/">Syntax</a>
 </li>
 
                         
@@ -81,8 +81,20 @@
     <ul class="dropdown-menu">
         
             
+<li >
+    <a href="../data_number/">Number</a>
+</li>
+
+        
+            
 <li class="active">
     <a href="./">String</a>
+</li>
+
+        
+            
+<li >
+    <a href="../data_boolean/">Boolean</a>
 </li>
 
         
@@ -183,12 +195,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../201/">
+                        <a rel="next" href="../data_number/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../data_time/">
+                        <a rel="prev" href="../data_boolean/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -205,6 +217,9 @@
     <ul class="nav bs-sidenav">
     
         <li class="main active"><a href="#sprintf">sprintf</a></li>
+        
+    
+        <li class="main "><a href="#multiline-string">Multiline String</a></li>
         
     
     </ul>
@@ -236,6 +251,13 @@ var users = [
 ]
 sprintf(&quot;Hello %(users[0].name)s and %(users[1].name)s&quot;, {users: users})
 # Hello Dolly and Molly
+</code></pre>
+
+<h3 id="multiline-string">Multiline String</h3>
+<pre><code class="javascript">str = &quot;\
+line 1\
+line 2\
+line 3&quot;;
 </code></pre></div>
             
         </div>

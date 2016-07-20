@@ -71,7 +71,7 @@
                         
                             
 <li >
-    <a href="../201/">201</a>
+    <a href="../201/">Syntax</a>
 </li>
 
                         
@@ -82,7 +82,19 @@
         
             
 <li >
+    <a href="../data_number/">Number</a>
+</li>
+
+        
+            
+<li >
     <a href="../data_string/">String</a>
+</li>
+
+        
+            
+<li >
+    <a href="../data_boolean/">Boolean</a>
 </li>
 
         
@@ -215,17 +227,16 @@
 
 <h1 id="rest">REST</h1>
 <h2 id="post">POST</h2>
-<p>[code lang="javascript"]
-$.ajax({
-  type: "POST",
-  url: "http://service.com/items",
-  data: JSON.stringify({"name": "new item"}),
+<pre><code class="javascript">$.ajax({
+  type: &quot;POST&quot;,
+  url: &quot;http://service.com/items&quot;,
+  data: JSON.stringify({&quot;name&quot;: &quot;new item&quot;}),
   contentType: 'application/json'
 }).done(function (data) {
   console.log(data)
 }).fail(function () {
 });
-[/code]</p></div>
+</code></pre></div>
             
         </div>
 
