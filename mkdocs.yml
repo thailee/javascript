@@ -3,9 +3,11 @@ pages:
 - "Home": 'index.md'
 - "Basic":
   - "101": '101.md'
-  - "201": '201.md'
+  - "Syntax": '201.md'
   - "Data Structure":
+     - "Number": 'data_number.md'
      - "String": 'data_string.md'
+     - "Boolean": 'data_boolean.md'
      - "Time": 'data_time.md'
      - "Object": 'data_object.md'
   - "OOP": "oop.md"

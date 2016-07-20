@@ -2,7 +2,7 @@
 
 ## POST
 
-[code lang="javascript"]
+```javascript
 $.ajax({
   type: "POST",
   url: "http://service.com/items",
@@ -12,4 +12,4 @@ $.ajax({
   console.log(data)
 }).fail(function () {
 });
-[/code]
+```
