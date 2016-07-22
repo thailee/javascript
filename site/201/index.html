@@ -64,12 +64,6 @@
                         <ul class="dropdown-menu">
                         
                             
-<li >
-    <a href="../101/">101</a>
-</li>
-
-                        
-                            
 <li class="active">
     <a href="./">Syntax</a>
 </li>
@@ -94,13 +88,19 @@
         
             
 <li >
-    <a href="../data_boolean/">Boolean</a>
+    <a href="../data_collection/">Collection</a>
 </li>
 
         
             
 <li >
-    <a href="../data_time/">Time</a>
+    <a href="../data_time/">Datetime</a>
+</li>
+
+        
+            
+<li >
+    <a href="../data_boolean/">Boolean</a>
 </li>
 
         
@@ -144,6 +144,12 @@
                             
 <li >
     <a href="../documentation/">Documentation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../error_handling/">Error Handling</a>
 </li>
 
                         
@@ -195,7 +201,7 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../101/">
+                        <a rel="next" href="..">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
@@ -258,6 +264,10 @@
             <li><a href="#65-closure">6.5 Closure</a></li>
         
             <li><a href="#66-recursion">6.6. Recursion</a></li>
+        
+            <li><a href="#67-arguments-object">6.7. Arguments object</a></li>
+        
+            <li><a href="#68-higher-order-function">6.8. Higher-Order Function</a></li>
         
     
     </ul>
@@ -523,6 +533,86 @@ function FindSolution(target){
     return Find(1, &quot;1&quot;);
 }
 console.log(FindSolution(25));   
+</code></pre>
+
+<h3 id="67-arguments-object">6.7. Arguments object</h3>
+<p>The arguments object contains all parameters you pass to a function.</p>
+<pre><code class="javascript">function argumentCounter() {
+    console.log(&quot;you gave me&quot;, arguments.length, &quot;argument.&quot;);
+}
+argumentCounter(&quot;Straw man&quot;, &quot;Tautology&quot;, &quot;Ad hominem&quot;);
+</code></pre>
+
+<h3 id="68-higher-order-function">6.8. Higher-Order Function</h3>
+<pre><code class="javasript">###Filter array
+var ancestry = JSON.parse(ANCESTRY_FILE);
+console.log(ancestry.length);
+
+function filter(array, test) {
+    var passed = [];
+    for (var i = 0; i &lt; array.length; i++){
+        if (test(array[i])){
+            passed.push(array[i]);
+        }
+    }
+    return passed;
+}
+console.log(filter(ancestry, function(person){
+    return person.born &gt; 1900 &amp;&amp; person.born &lt; 1925;
+}));
+
+### TRANSFORMING WITH A MAP
+function map(array, transform) {
+  var mapped = [];
+  for (var i = 0; i &lt; array.length; i++)
+    mapped.push(transform(array[i]));
+  return mapped;
+}
+
+var overNinety = ancestry.filter(function(person) {
+  return person.died - person.born &gt; 90;
+});
+console.log(map(overNinety, function(person) {
+  return person.name;
+}));
+
+
+### REDUCE
+function reduce(array, combine, start) {
+  var current = start;
+  for (var i = 0; i &lt; array.length; i++)
+    current = combine(current, array[i]);
+  return current;
+}
+console.log(reduce([1, 2, 3, 4], function(a, b) {
+  return a + b;
+}, 0));
+#Problem: using map and reduce, transform [1,2,3,4] to [1,2],[3,4]
+
+var a = [1, 2, 3, 4]
+a = _.map(a, function(i){
+    if(i % 2 == 0){
+        return [[],[i]]
+    } else {
+        return [[i], []]
+    }
+});
+a = _.reduce(a, function(x, y){
+   return [x[0].concat(y[0]), x[1].concat(y[1])]
+})
+
+
+### BINDING FUNCTION
+var theSet = [&quot;Carel Haverbeke&quot;, &quot;Maria van Brussel&quot;,
+              &quot;Donald Duck&quot;];
+function isInSet(set, person) {
+  return set.indexOf(person.name) &gt; -1;
+}
+
+console.log(ancestry.filter(function(person) {
+  return isInSet(theSet, person);
+}));
+console.log(ancestry.filter(isInSet.bind(null, theSet)));
 </code></pre>
 
 <div class="footnote">

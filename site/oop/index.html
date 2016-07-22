@@ -65,12 +65,6 @@
                         
                             
 <li >
-    <a href="../101/">101</a>
-</li>
-
-                        
-                            
-<li >
     <a href="../201/">Syntax</a>
 </li>
 
@@ -94,13 +88,19 @@
         
             
 <li >
-    <a href="../data_boolean/">Boolean</a>
+    <a href="../data_collection/">Collection</a>
 </li>
 
         
             
 <li >
-    <a href="../data_time/">Time</a>
+    <a href="../data_time/">Datetime</a>
+</li>
+
+        
+            
+<li >
+    <a href="../data_boolean/">Boolean</a>
 </li>
 
         
@@ -144,6 +144,12 @@
                             
 <li >
     <a href="../documentation/">Documentation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../error_handling/">Error Handling</a>
 </li>
 
                         
@@ -224,6 +230,9 @@
         <li class="main "><a href="#2-inheritance">2. Inheritance</a></li>
         
     
+        <li class="main "><a href="#object-oriented-programming">Object-Oriented Programming</a></li>
+        
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -265,6 +274,218 @@ var person1 = new Person(&quot;Barack Obama&quot;, &quot;04/08/1961&quot;, &quot
 var person2 = new Politician(&quot;David Cameron&quot;, &quot;09/10/1966&quot;);
 person1.display();
 person2.display();
+
+</code></pre>
+
+<h1 id="object-oriented-programming">Object-Oriented Programming</h1>
+<pre><code class="javascript">var rabbit = {};
+rabbit.speak = function(line){
+console.log(&quot;The rabit says:'&quot; + line + &quot;'&quot;);
+ };
+rabbit.speak(&quot;I'm alive&quot;);
+
+function speak(line){
+   console.log(&quot;The &quot;+ this.type + &quot; rabbit says '&quot; + line + &quot;'&quot;);
+ }
+
+var whiteRabbit = {type: &quot;white&quot;, speak: speak};
+var fatRabbit = {type: &quot;fat&quot;, speak: speak};
+whiteRabbit.speak(&quot;Oh my ears and whiskers, &quot; + &quot;how late it's getting!&quot;);
+fatRabbit.speak(&quot;I could sure use a carrot right now&quot;);
+
+// Prototype
+// Prototype is another object that is used as a fallback source of properties
+// When object request a property that it does not have, its prototype will be searched for the property
+var empty = {};
+console.log(empty.toString);
+console.log(empty.toString);
+
+// Get prototype of an object 2 ways:
+console.log(Object.getPrototypeOf({}) == Object.prototype);
+console.log(Object.getPrototypeOf(Object.prototype));
+
+// Using Object.create to create an object with an specific prototype
+var protoRabbit = {
+  speak: function(line){
+    console.log(&quot;The &quot; + this.type + &quot; rabbit says '&quot; + line + &quot;'&quot;);
+  }
+};
+
+var killerRabbit = Object.create(protoRabbit);
+killerRabbit.type = &quot;Killer&quot;;
+killerRabbit.speak(&quot;Skreeee!&quot;);
+
+// Constructor
+function Rabbit(type){
+   this.type = type;
+}
+var killerRabbit = new Rabbit(&quot;Killer&quot;);
+var blackRabbit = new Rabbit(&quot;black&quot;);
+console.log(blackRabbit.type);
+
+// using prototype to add a new method
+Rabbit.prototype.speak = function(line) {
+  console.log(&quot;The &quot; + this.type + &quot; rabit says '&quot; + line + &quot;'&quot;);
+};
+blackRabbit.speak(&quot;Doom...&quot;);
+
+
+// OVERRIDING DERIVED PROPERTIES
+Rabbit.prototype.teeth = &quot;small&quot;;
+console.log(killerRabbit.teeth);
+
+killerRabbit.teeth = &quot;Long, sharp, and bloody&quot;;
+console.log(killerRabbit.teeth);
+console.log(blackRabbit.teeth);
+console.log(Rabbit.prototype.teeth);
+
+// PROTOTYPE INTERFERENCE
+// A prototype can be used at any time to add methods, properties
+// to all objects based on it
+Rabbit.prototype.dance = function (){
+  console.log(&quot;The &quot; + this.type + &quot; rabbit dances a jig&quot;);
+};
+killerRabbit.dance();
+// but there is a problem:
+var map = {};
+function storePhi(event, phi){
+   map[event] = phi;
+}
+
+storePhi(&quot;pizza&quot;, 0.069);
+storePhi(&quot;touched tree&quot;, -0.081);
+console.log(map);
+
+Object.prototype.nonsense = &quot;hi&quot;;
+for (var name in map) {
+  console.log(name);
+}
+console.log(&quot;nonsense&quot; in map);
+console.log(&quot;toString&quot; in map);
+delete Object.prototype.nonsense;
+//  we can use Object.defineProperty to solve it
+Object.defineProperty(Object.prototype, &quot;hiddenNonsense&quot;, {
+   enumerable: false,
+   value: &quot;hi&quot;
+});
+
+for (var name in map) {
+  console.log(name);
+}
+console.log(map.hiddenNonsense);
+// but there still has a problem
+console.log(&quot;toString&quot; in map);
+console.log(map.hasOwnProperty(&quot;toString&quot;));
+
+// PROTOTYPE-LESS OBJECTS
+// if we only want to create an fresh object, without prototype then we tranform null to create
+var map = Object.create(null);
+map[&quot;pizza&quot;] = 0.09;
+console.log(&quot;toString&quot; in map);
+console.log(&quot;pizza&quot; in map);
+
+// POLYMORPHISM
+// laying out a table: example for polymorphism
+function rowHeights(rows) {
+    return rows.map(function(row){
+        return row.reduce(function(max, cell) {
+            return Math.max(max, cell.minHeight());
+        }, 0);
+    });
+}
+
+function colWidths(rows) {
+    return rows[0].map(function(_, i) {
+        return rows.reduce(function(max, row){
+            return Math.max(max, row[i].minWidth());
+        }, 0);
+    });
+}
+
+function drawTable(rows) {
+    var heights = rowHeights(rows);
+    var widths = colWidths(rows);
+
+    function drawLine(blocks, lineNo) {
+        return blocks.map(function(block) {
+            return block[lineNo];
+        }).join(&quot; &quot;);
+    }
+
+    function drawRow(row, rowNum){
+        var blocks = row.map(function(cell, colNum) {
+           return cell.draw(widths[colNum], heights[rowNum]);
+        });
+        return blocks[0].map(function(_, lineNo) {
+            return drawLine(blocks, lineNo);
+        }).join(&quot;\n&quot;);
+    }
+
+    return rows.map(drawRow).join(&quot;\n&quot;);
+}
+
+function repeat(string, times){
+    var result = &quot;&quot;;
+    for (var i = 0; i &lt; times; i++){
+        result += string;
+    }
+    return result;
+}
+
+function TextCell(text){
+    this.text = text.split(&quot;\n&quot;);
+}
+TextCell.prototype.minWidth = function(){
+    return this.text.reduce(function(width, line){
+        return Math.max(width, line.lenght);
+    }, 0);
+};
+TextCell.prototype.minHeight = function(){
+    return this.text.length;
+}
+TextCell.prototype.minHeight = function(){
+    return this.text.lenght;
+}
+TextCell.prototype.minHeight = function(){
+    return this.text.length;
+}
+TextCell.prototype.draw = function(width, height){
+    var result = [];
+    for (var i = 0; i &lt; height; i++){
+        var line = this.text[i] || &quot;&quot;;
+        result.push(line + repeat(&quot; &quot;, width - line.length));
+    }
+    return result;
+}
+
+var rows = [];
+for (var i = 0; i &lt; 5; i++){
+    var row = [];
+    for (var j = 0; j &lt; 5; j++){
+        if ((i + j) % 2 == 0){
+            row.push(new TextCell(&quot;1234&quot;));
+        } else{
+            row.push(new TextCell(&quot;5&quot;));
+        }
+    }
+    rows.push(row);
+}
+console.log(drawTable(rows));
+
+// // GETTERS AND SETTERS
+// var pile = {
+//     elements: [&quot;eggshell&quot;, &quot;orange peel&quot;, &quot;worm&quot;],
+//     get height(){
+//         return this.elements.length;
+//     },
+//     set height(value) {
+//         console.log(&quot;Ignoring attemp to set high to &quot;, value);
+//     }
+// };
+
+// console.log(pile.height);
+// pile.height = 100;
+// console.log(pile.height);
 
 </code></pre>
 
