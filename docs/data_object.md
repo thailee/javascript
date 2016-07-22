@@ -1,22 +1,35 @@
-Convert dict to object [^1]
+# Object
 
-```python
-class Struct:
-    def __init__(self, **entries):
-        self.__dict__.update(entries)
+## Define an object
+
+```javascript
+var object = {
+  number: 10,
+  string: "string",
+  array: [1,2,3],
+  object: {a: 1, b: 2}
+}
+```
+#### Add new property to object
+```javascript
+object.newProperty = "value";
+object['key'] = 'value';
+```
+#### delete property
+```javascript
+delete object.newProperty;
 ```
 
-Then, you can use
-
-```python
-> args = {'a': 1, 'b': 2}
-> s = Struct(**args)
-> s
-< __main__.Struct instance at 0x01D6A738 >
-> s.a
-1
-> s.b
-2
+###Window object (global object)
+The Global scope is stored in an object which called window
+```javascript
+function test(){
+    var local = 10;
+    console.log("local" in window);
+    console.log(window.local);
+}
+test();
+var global = 10;
+console.log("global" in window);
+console.log(window.global);
 ```
-
-[^1]: [stackoverflow, Convert Python dict to object?](http://stackoverflow.com/questions/1305532/convert-python-dict-to-object)

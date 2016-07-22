@@ -65,12 +65,6 @@
                         
                             
 <li >
-    <a href="../101/">101</a>
-</li>
-
-                        
-                            
-<li >
     <a href="../201/">Syntax</a>
 </li>
 
@@ -94,13 +88,19 @@
         
             
 <li >
-    <a href="../data_boolean/">Boolean</a>
+    <a href="../data_collection/">Collection</a>
 </li>
 
         
             
 <li >
-    <a href="../data_time/">Time</a>
+    <a href="../data_time/">Datetime</a>
+</li>
+
+        
+            
+<li >
+    <a href="../data_boolean/">Boolean</a>
 </li>
 
         
@@ -144,6 +144,12 @@
                             
 <li >
     <a href="../documentation/">Documentation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../error_handling/">Error Handling</a>
 </li>
 
                         
@@ -195,7 +201,7 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../data_time/">
+                        <a rel="next" href="../data_boolean/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
@@ -216,35 +222,46 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
+        <li class="main active"><a href="#object">Object</a></li>
+        
+            <li><a href="#define-an-object">Define an object</a></li>
+        
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<p>Convert dict to object <sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup></p>
-<pre><code class="python">class Struct:
-    def __init__(self, **entries):
-        self.__dict__.update(entries)
+<h1 id="object">Object</h1>
+<h2 id="define-an-object">Define an object</h2>
+<pre><code class="javascript">var object = {
+  number: 10,
+  string: &quot;string&quot;,
+  array: [1,2,3],
+  object: {a: 1, b: 2}
+}
 </code></pre>
 
-<p>Then, you can use</p>
-<pre><code class="python">&gt; args = {'a': 1, 'b': 2}
-&gt; s = Struct(**args)
-&gt; s
-&lt; __main__.Struct instance at 0x01D6A738 &gt;
-&gt; s.a
-1
-&gt; s.b
-2
+<h4 id="add-new-property-to-object">Add new property to object</h4>
+<pre><code class="javascript">object.newProperty = &quot;value&quot;;
+object['key'] = 'value';
 </code></pre>
 
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p><a href="http://stackoverflow.com/questions/1305532/convert-python-dict-to-object">stackoverflow, Convert Python dict to object?</a>&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div></div>
+<h4 id="delete-property">delete property</h4>
+<pre><code class="javascript">delete object.newProperty;
+</code></pre>
+
+<h3 id="window-object-global-object">Window object (global object)</h3>
+<p>The Global scope is stored in an object which called window</p>
+<pre><code class="javascript">function test(){
+    var local = 10;
+    console.log(&quot;local&quot; in window);
+    console.log(window.local);
+}
+test();
+var global = 10;
+console.log(&quot;global&quot; in window);
+console.log(window.global);
+</code></pre></div>
             
         </div>
 

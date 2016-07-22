@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+
+	<title>Error Handling - JavascriptTutorial</title>
+
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">JavascriptTutorial</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Basic <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../201/">Syntax</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Data Structure</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../data_number/">Number</a>
+</li>
+
+        
+            
+<li >
+    <a href="../data_string/">String</a>
+</li>
+
+        
+            
+<li >
+    <a href="../data_collection/">Collection</a>
+</li>
+
+        
+            
+<li >
+    <a href="../data_time/">Datetime</a>
+</li>
+
+        
+            
+<li >
+    <a href="../data_boolean/">Boolean</a>
+</li>
+
+        
+            
+<li >
+    <a href="../data_object/">Object</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../oop/">OOP</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../networking/">Networking</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Intermediate <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../logging/">Logging</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../documentation/">Documentation</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Error Handling</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../testing/">Testing</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Advanced <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../package_manager/">Package Manager</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../build_tool/">Build Tool</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../make_module/">Make Module</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="next" href="../documentation/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../testing/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#strict-mode">STRICT MODE</a></li>
+        
+    
+        <li class="main "><a href="#testing">TESTING</a></li>
+        
+    
+        <li class="main "><a href="#debugging">DEBUGGING</a></li>
+        
+    
+        <li class="main "><a href="#error-propagation">ERROR PROPAGATION</a></li>
+        
+    
+        <li class="main "><a href="#exception">EXCEPTION</a></li>
+        
+    
+        <li class="main "><a href="#clean-up-after-exceptions">CLEAN UP AFTER EXCEPTIONS</a></li>
+        
+    
+        <li class="main "><a href="#selective-catching">SELECTIVE CATCHING</a></li>
+        
+    
+        <li class="main "><a href="#assertions">ASSERTIONS</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<p><em>In javascript bugs may be displayed is <strong>NaN</strong> or <strong>underfined</strong> and program still run but after that, the wrong value can cause some mistake when we use it
+So, finding bugs and fix them is the quiet hard work in javascript But we can do, and this job is called debugging</em></p>
+<h2 id="strict-mode">STRICT MODE</h2>
+<p>This is the way to find errors that javascript ignores.
+Example is using an undefined variable. if we dont use strick mode, then everything will be ok, but if using, the error will be shown</p>
+<pre><code class="javascript">function SpotProblem(){
+//     &quot;use strict&quot;;
+    for (counter = 0; counter &lt; 10; counter++){
+        console.log(&quot;Good!&quot;);
+    }
+}
+SpotProblem();
+console.log(counter);
+</code></pre>
+
+<p>strick mode can find error when using this in local, but it is still in global.
+Example: When we forget to declare the key word "new" when create an new Object</p>
+<pre><code class="javascript">&quot;use strict&quot;;
+function Person(name){
+    this.name = name;
+}
+var john = Person(&quot;John&quot;);
+console.log(name);
+</code></pre>
+
+<p>And there are another cases, that trick mode is not allowed:
+<strong>Delete an object is not allowed</strong></p>
+<pre><code class="javascript">&quot;use strict&quot;;
+var x = 3.14;
+delete x;
+
+&quot;use strict&quot;;
+var obj = {v1: 3, v2: 4};
+delete pbj;
+
+&quot;use strict&quot;;
+var func = function(){};
+delete func;
+</code></pre>
+
+<p><strong>Duplicate parameter is not allowed</strong></p>
+<pre><code class="javascript">&quot;use strict&quot;;
+var func = function(a1, a1){
+    console.log(a1);
+}
+</code></pre>
+
+<p><strong>Reserve Word is not allowed to name variable</strong></p>
+<pre><code class="javascript">&quot;use strict&quot;;
+var arguments = 5;
+var eval = 6;
+console.log(arguments);
+console.log(eval);
+</code></pre>
+
+<h2 id="testing">TESTING</h2>
+<p><strong>Testing makes sure that the program working well, and if there are any changes, testing will automatic show us the error, thus, we know where need to fix</strong></p>
+<pre><code class="javascript">function Vector(x, y){
+    this.x = x;
+    this.y = y;
+}
+Vector.prototype.plus = function(other){
+    return new Vector(this.x + other.x, this.y + other.y);
+}
+
+function TestVector(){
+    var p1 = new Vector(10, 20);
+    var p2 = new Vector(-10, 5);
+    var p3 = p1.plus(p2);
+
+    if (p1.x !== 10) return &quot;fail: x property&quot;;
+    if (p1.y !== 20) return &quot;fail: y property&quot;;
+    if (p2.x !== -10) return &quot;fail: nagative x property&quot;;
+    if (p2.y !== 5) return &quot;fail: y property&quot;;
+    if (p3.x !== 0) return &quot;fail: x property from plus&quot;;
+    if (p3.y !== 25) return &quot;fail: y property from plus&quot;;
+    return &quot;Vector is Oke&quot;;
+}
+TestVector();
+</code></pre>
+
+<h2 id="debugging">DEBUGGING</h2>
+<p>when the testing is fail, we have to debug to find the bugs. </br>
+The first we should guess the bug. And then we put break point in the line, we assume it make bug </br>
+If that is the exactly bug we want to find, then we fix it, and write more test for this case </br>
+In this example code below, the function convert the number in the decima to another. we run and see the result is wrong, so we guess that the error may be caused by the result variable, then we put break point in the line contains result variable.</p>
+<pre><code class="javascript">function ConvertNumber(n, base) {
+  var result = &quot;&quot;, sign = &quot;&quot;;
+  if (n &lt; 0) {
+    sign = &quot;-&quot;;
+    n = -n;
+  }
+  do {
+    result = String(n % base) + result;
+    n /= base; //-&gt; n = Math.floor(n / base);
+  } while (n &gt; 0);
+  return sign + result;
+}
+console.log(ConvertNumber(13, 10));
+console.log(ConvertNumber(14, 2));
+</code></pre>
+
+<h2 id="error-propagation">ERROR PROPAGATION</h2>
+<p>Sometime our code is working well with normal input. But with special one, they can cause error. So, we have to consider all situation can make Flaws, and handling them. </br>
+This example code below has an if..else to handle the wrong input if user types not a number in the prompt input</p>
+<pre><code class="javascript">function promptNumber(question) {
+  var result = Number(prompt(question, &quot;&quot;));
+  if (isNaN(result)) return null;
+  else return result;
+}
+console.log(promptNumber(&quot;How many trees do you see?&quot;));
+</code></pre>
+
+<h2 id="exception">EXCEPTION</h2>
+<p>In the Error Propagation, we can control the errors if we know them. But what will happen if we don't know the error? For solving this problem, javascript provides for us an try...catch.. to control error we dont know or not sure</p>
+<pre><code class="javascript">try {
+    throw new Error(&quot;Invalid defination&quot;);
+} catch (error){
+    console.log(error);
+}
+
+function promtDirection(question){
+    var result = prompt(question, &quot;&quot;);
+    if (result.toLowerCase() == &quot;left&quot;) return &quot;L&quot;;
+    if (result.toLowerCase() == &quot;right&quot;) return &quot;R&quot;;
+    throw new Error(&quot;Invalid direction: &quot; + result);
+}
+
+function look(){
+    if (promtDirection(&quot;Which way?&quot;) == &quot;L&quot;) {
+        return &quot;a house&quot;;
+    }
+    else{
+        return &quot;two angry bears&quot;;
+    }
+}
+
+try {
+    console.log(&quot;you see&quot;, look());
+} catch (error) {
+    console.log(&quot;Something went wrong: &quot; + error);
+}
+</code></pre>
+
+<h2 id="clean-up-after-exceptions">CLEAN UP AFTER EXCEPTIONS</h2>
+<p>We have a block of code below:</p>
+<pre><code class="javascript">var context = null;
+function withContext(newContext, body){
+  var oldContext = context;
+  context = newContext;
+  var result = body();
+  context = oldContext;
+  return result;
+}
+withContext(&quot;new&quot;, function(){
+  var a = b/0;
+  return a;
+});
+</code></pre>
+
+<p>What would happend with context? It cannot be excute the last line code, because in withContext function, it will throw off the stack by an exception. So javascript provides a <strong>try...finally...</strong></p>
+<pre><code class="javascript">var context = null;
+function withContext(newContext, body){
+  var oldContext = context;
+  context = newContext;
+  try{
+    return body();
+  } finally {
+    context = oldContext;
+  }
+}
+withContext(&quot;new&quot;, function(){
+  var a = b/0;
+  return a;
+});
+</code></pre>
+
+<h2 id="selective-catching">SELECTIVE CATCHING</h2>
+<p>There are some errors cannot handle by environment. So, if we let the error go through, it can cause broken program.</br>
+For examnple, the Error() in environment cannot catch the infinitive loop in the try block, if we dont catch this problem, the programm will crash soon</p>
+<pre><code class="javascript">for (;;) {
+  try {
+    var dir = promtDirection(&quot;Where?&quot;);
+    console.log(&quot;You chose &quot;, dir);
+    break;
+  } catch (e) {
+    console.log(&quot;Not a valid direction. Try again.&quot;);
+  }
+}
+</code></pre>
+
+<p>The loop will break out if the promptDirection() can excute. </br>
+But it doesn't. Because it is not defined before, so the environment catch it and go through the catch to show error </br>
+The circle again and again will make the program crash. </br>
+<strong>So we will create a special Exception.</strong></p>
+<pre><code class="javascript">function InputError(message){
+  this.message = message;
+  this.stack = (new Error()).stack;
+}
+InputError.prototype = Object.create(Error.prototype);
+InputError.prototype.name = &quot;InputError&quot;;
+</code></pre>
+
+<p>Error: has an property is stack. it contains all exception, which environment can catch.
+Then, we have the promptDirection function to return the result if Enter valid format, or an exception if invalid</p>
+<pre><code class="javascript">function promptDirection(question){
+  var result = prompt(question, &quot;&quot;);
+  if (result.toLowerCase() == &quot;left&quot;) return &quot;L&quot;;
+  if (result.toLowerCase() == &quot;right&quot;) return &quot;R&quot;;
+  throw new InputError(&quot;Invalid direction: &quot; + result);
+}
+</code></pre>
+
+<p>Finally, we can catch all exception we want</p>
+<pre><code class="javascript">for (;;){
+  try {
+    var dir = promptDirection(&quot;Where?&quot;);
+    console.log(&quot;You choose &quot;, dir);
+    break;
+  } catch(e) {
+    if (e instanceof InputError){
+      console.log(&quot;Not a valid direction. Try again. &quot;);
+    }
+    else {
+      throw e;
+    }
+  }
+}
+</code></pre>
+
+<h2 id="assertions">ASSERTIONS</h2>
+<pre><code class="javascript">function AssertionFailed(message) {
+  this.message = message;
+}
+AssertionFailed.prototype = Object.create(Error.prototype);
+
+function assert(test, message) {
+  if (!test)
+    throw new AssertionFailed(message);
+}
+
+function lastElement(array) {
+  assert(array.length &gt; 0, &quot;empty array in lastElement&quot;);
+  return array[array.length - 1];
+}
+</code></pre></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script>var base_url = '..';</script>
+        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+        <script src="../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
