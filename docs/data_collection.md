@@ -1,5 +1,5 @@
-##Array
-####Some useful methods with array
+## Collection
+#### Some useful methods with array
 + push and pop
 ```javascript
 var a = [1,2,3,4];

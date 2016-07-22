@@ -47,6 +47,7 @@ person2.display();
 ```
 
 # Object-Oriented Programming
+
 ```javascript
 var rabbit = {};
 rabbit.speak = function(line){
