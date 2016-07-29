@@ -4,7 +4,23 @@
     
     <url>
      <loc>None/</loc>
-     <lastmod>2016-07-22</lastmod>
+     <lastmod>2016-07-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>None/install/</loc>
+     <lastmod>2016-07-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>None/ide/</loc>
+     <lastmod>2016-07-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,8 +28,8 @@
     
         
     <url>
-     <loc>None/201/</loc>
-     <lastmod>2016-07-22</lastmod>
+     <loc>None/basic_syntax/</loc>
+     <lastmod>2016-07-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -25,63 +41,55 @@
         
     <url>
      <loc>None/oop/</loc>
-     <lastmod>2016-07-22</lastmod>
+     <lastmod>2016-07-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/networking/</loc>
-     <lastmod>2016-07-22</lastmod>
+     <lastmod>2016-07-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
-    
-
-    
-        
     <url>
      <loc>None/logging/</loc>
-     <lastmod>2016-07-22</lastmod>
+     <lastmod>2016-07-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/documentation/</loc>
-     <lastmod>2016-07-22</lastmod>
+     <lastmod>2016-07-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/error_handling/</loc>
-     <lastmod>2016-07-22</lastmod>
+     <lastmod>2016-07-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/testing/</loc>
-     <lastmod>2016-07-22</lastmod>
+     <lastmod>2016-07-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
-    
-
-    
-        
     <url>
      <loc>None/package_manager/</loc>
-     <lastmod>2016-07-22</lastmod>
+     <lastmod>2016-07-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/build_tool/</loc>
-     <lastmod>2016-07-22</lastmod>
+     <lastmod>2016-07-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/make_module/</loc>
-     <lastmod>2016-07-22</lastmod>
+     <lastmod>2016-07-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
