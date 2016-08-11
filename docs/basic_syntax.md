@@ -92,8 +92,8 @@ The Simplest kind of stagement is an expression with a semi colon
 ## 5. Loop and iteration
 ####while
 ```javacript
-var number = 0;
-while (number <= 12) {
+  var number = 0;
+  while (number <= 12) {
   console.log(number);
   number = number + 2;
 }
@@ -112,13 +112,36 @@ for (var i = 0; i < 10; i++) {
 }
 ```
 
+```javascript
+var objects = {a:1, b:2, c:3, d:4, e:5};
+for (object in objects) {console.log(object)};
+```
+
 ## 6. Function
 ### 6.1 Defining a Function
+
++ define a function
+```javascript
+function add(a, b) {
+  return a + b;
+}
+add(1, 2);
+```
+
++ function as variable
 ```javascript
 var square = function(x) {
   return x * x;
 };
 square(5);
+```
+
++ Anonymous function
+```javascript
+setTimeout(function(){
+  console.log("this is inside a anonymous function. It is usually used as a callback function");
+}, 1000);
+
 ```
 ### 6.2 Scope
 #####Scope is the area where contains all variable or function are living. </br>
