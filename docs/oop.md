@@ -19,8 +19,31 @@ ball.display();
 
 # 2. Inheritance
 
+In javascript, the Inheritance is showed through an concept called *prototype*.
 
+```javascript
+function Person(){
+    this.name = 'Ken';
+    this.age = '20';
+    function show(){
+        console.log(name, age);
+    }
+}
+
+// another constructor 
+function Superman(name, age){
+    this.name = name;
+    this.age = age;
+}
+
+// now we want Superman to inherit all methods of Person
+Superman.prototype = Person();
+var superman = new Superman('joker', 30);
+superman.show();
 ```
+
+Another example
+```javascript
 Person = function (name, birthday, job) {
   this.name = name;
   this.birthday = birthday;
@@ -46,219 +69,62 @@ person2.display();
 
 ```
 
-# Object-Oriented Programming
+# 3. Encapsulation
+
+**Encapsulation means, we cannot access and change the properties of an object, but we can do it through the methods of this object**
+
+## 3.1 Namespace
+
+Namespace wraps all objects, classes in an object
 
 ```javascript
-var rabbit = {};
-rabbit.speak = function(line){
-console.log("The rabit says:'" + line + "'");
- };
-rabbit.speak("I'm alive");
+var calculation = {
+    add: function(a,b){
+        return a + b;
+    },
+    minus: function(a,b){
+        return a - b;
+    },
+    multil: function(a,b){
+        return a * b;
+    },
+    devide: function(a,b){
+        return a / b;
+    }
+}
 
-function speak(line){
-   console.log("The "+ this.type + " rabbit says '" + line + "'");
- }
+var add = function(a,b,c){
+    return a + b + c;
+}
 
-var whiteRabbit = {type: "white", speak: speak};
-var fatRabbit = {type: "fat", speak: speak};
-whiteRabbit.speak("Oh my ears and whiskers, " + "how late it's getting!");
-fatRabbit.speak("I could sure use a carrot right now");
+console.log(calculation.add(5,6));
+console.log(add(1,2,3));
+```
 
-// Prototype
-// Prototype is another object that is used as a fallback source of properties
-// When object request a property that it does not have, its prototype will be searched for the property
-var empty = {};
-console.log(empty.toString);
-console.log(empty.toString);
-
-// Get prototype of an object 2 ways:
-console.log(Object.getPrototypeOf({}) == Object.prototype);
-console.log(Object.getPrototypeOf(Object.prototype));
-
-// Using Object.create to create an object with an specific prototype
-var protoRabbit = {
-  speak: function(line){
-    console.log("The " + this.type + " rabbit says '" + line + "'");
+## 3.2 Getter and Setter
+```javascript
+var pile = {
+  elements: ["eggshell", "orange peel", "worm"],
+  get height(){
+    return this.elements.length;
+  },
+  set height(value) {
+    console.log("Ignoring attemp to set high to ", value);
   }
 };
 
-var killerRabbit = Object.create(protoRabbit);
-killerRabbit.type = "Killer";
-killerRabbit.speak("Skreeee!");
-
-// Constructor
-function Rabbit(type){
-   this.type = type;
-}
-var killerRabbit = new Rabbit("Killer");
-var blackRabbit = new Rabbit("black");
-console.log(blackRabbit.type);
-
-// using prototype to add a new method
-Rabbit.prototype.speak = function(line) {
-  console.log("The " + this.type + " rabit says '" + line + "'");
-};
-blackRabbit.speak("Doom...");
-
-
-// OVERRIDING DERIVED PROPERTIES
-Rabbit.prototype.teeth = "small";
-console.log(killerRabbit.teeth);
-
-killerRabbit.teeth = "Long, sharp, and bloody";
-console.log(killerRabbit.teeth);
-console.log(blackRabbit.teeth);
-console.log(Rabbit.prototype.teeth);
-
-// PROTOTYPE INTERFERENCE
-// A prototype can be used at any time to add methods, properties
-// to all objects based on it
-Rabbit.prototype.dance = function (){
-  console.log("The " + this.type + " rabbit dances a jig");
-};
-killerRabbit.dance();
-// but there is a problem:
-var map = {};
-function storePhi(event, phi){
-   map[event] = phi;
-}
-
-storePhi("pizza", 0.069);
-storePhi("touched tree", -0.081);
-console.log(map);
-
-Object.prototype.nonsense = "hi";
-for (var name in map) {
-  console.log(name);
-}
-console.log("nonsense" in map);
-console.log("toString" in map);
-delete Object.prototype.nonsense;
-//  we can use Object.defineProperty to solve it
-Object.defineProperty(Object.prototype, "hiddenNonsense", {
-   enumerable: false,
-   value: "hi"
-});
-
-for (var name in map) {
-  console.log(name);
-}
-console.log(map.hiddenNonsense);
-// but there still has a problem
-console.log("toString" in map);
-console.log(map.hasOwnProperty("toString"));
-
-// PROTOTYPE-LESS OBJECTS
-// if we only want to create an fresh object, without prototype then we tranform null to create
-var map = Object.create(null);
-map["pizza"] = 0.09;
-console.log("toString" in map);
-console.log("pizza" in map);
-
-// POLYMORPHISM
-// laying out a table: example for polymorphism
-function rowHeights(rows) {
-    return rows.map(function(row){
-        return row.reduce(function(max, cell) {
-            return Math.max(max, cell.minHeight());
-        }, 0);
-    });
-}
-
-function colWidths(rows) {
-    return rows[0].map(function(_, i) {
-        return rows.reduce(function(max, row){
-            return Math.max(max, row[i].minWidth());
-        }, 0);
-    });
-}
-
-function drawTable(rows) {
-    var heights = rowHeights(rows);
-    var widths = colWidths(rows);
-
-    function drawLine(blocks, lineNo) {
-        return blocks.map(function(block) {
-            return block[lineNo];
-        }).join(" ");
-    }
-
-    function drawRow(row, rowNum){
-        var blocks = row.map(function(cell, colNum) {
-           return cell.draw(widths[colNum], heights[rowNum]);
-        });
-        return blocks[0].map(function(_, lineNo) {
-            return drawLine(blocks, lineNo);
-        }).join("\n");
-    }
-
-    return rows.map(drawRow).join("\n");
-}
-
-function repeat(string, times){
-    var result = "";
-    for (var i = 0; i < times; i++){
-        result += string;
-    }
-    return result;
-}
-
-function TextCell(text){
-    this.text = text.split("\n");
-}
-TextCell.prototype.minWidth = function(){
-    return this.text.reduce(function(width, line){
-        return Math.max(width, line.lenght);
-    }, 0);
-};
-TextCell.prototype.minHeight = function(){
-    return this.text.length;
-}
-TextCell.prototype.minHeight = function(){
-    return this.text.lenght;
-}
-TextCell.prototype.minHeight = function(){
-    return this.text.length;
-}
-TextCell.prototype.draw = function(width, height){
-    var result = [];
-    for (var i = 0; i < height; i++){
-        var line = this.text[i] || "";
-        result.push(line + repeat(" ", width - line.length));
-    }
-    return result;
-}
-
-var rows = [];
-for (var i = 0; i < 5; i++){
-    var row = [];
-    for (var j = 0; j < 5; j++){
-        if ((i + j) % 2 == 0){
-            row.push(new TextCell("1234"));
-        } else{
-            row.push(new TextCell("5"));
-        }
-    }
-    rows.push(row);
-}
-console.log(drawTable(rows));
-
-// // GETTERS AND SETTERS
-// var pile = {
-//     elements: ["eggshell", "orange peel", "worm"],
-//     get height(){
-//         return this.elements.length;
-//     },
-//     set height(value) {
-//         console.log("Ignoring attemp to set high to ", value);
-//     }
-// };
-
-// console.log(pile.height);
-// pile.height = 100;
-// console.log(pile.height);
-
+console.log(pile.height);
+pile.height = 100;
+console.log(pile.height);
 ```
+
+# 4. Abstraction
+
+Abstraction is to hide the details, and only show the features of an object.
+
+Abstraction helps us avoid coupling pieces of code
+
+(Achive Abstraction in Javascript)[http://www.yusufaytas.com/achieving-abstraction-in-javascript/]
 
 
 [1]: [Introduction to Object-Oriented JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript)

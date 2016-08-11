@@ -1,3 +1,5 @@
+# Bacic Syntax
+
 ## 1. Code Formatting
 
 Indent with 2 spaces
