@@ -2,6 +2,7 @@
  * Created by thaidl on 09-02-2017.
  */
 
+
 //Variables
 var ten = 10;
 console.log(ten * ten); // → 100

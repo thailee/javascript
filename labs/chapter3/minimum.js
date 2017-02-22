@@ -8,3 +8,4 @@ function min(a,b) {
         return b;
 }
 console.log(min(1,2));
+console.log(min(0,-10));
