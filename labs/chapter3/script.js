@@ -132,7 +132,7 @@ var wrap2 = wrapValue(2);
 console.log(wrap1());
 console.log(wrap2());
 
-//-----
+//-----????
 function multiplier(factor) {
     return function (number) {
         return number * factor;
