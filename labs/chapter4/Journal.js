@@ -115,42 +115,42 @@ function tableFor(event, journal) {
   return table;
 }
 console.log(tableFor("pizza", JOURNAL));
-
-function gatherCorrelations(journal) {
-  var phis = {};
-  for(var entry = 0; entry < journal.length; entry++){
-    var events = journal[entry].events;
-    for(var i=0; i< events.length; i++){
-      var event = events[i];
-      if(!(event in phis))
-        phis[event] = phi(tableFor(event, journal));
-    }
-  }
-  return phis;
-}
-
-var corrlations = gatherCorrelations(JOURNAL);
-console.log(corrlations.pizza);
-
-for (var event in corrlations){
-  var correlation = corrlations[event];
-  if(correlation > 0,1 || correlation < -0,1)
-    console.log(event +" : "+correlation);
-}
-
-for(var i = 0; i< JOURNAL.length; i++){
-  var entry = JOURNAL[i];
-  if(hasEvent("peanuts", entry) && !hasEvent("brushed teeth", entry))
-    entry.events.push("peanut teeth");
-}
-console.log(phi(tableFor("peanut teeth", JOURNAL)));
-
-
-
-function phi(table) {
-  return (table[3] * table[0] - table[2] * table[1]) /
-    Math.sqrt((table[2] + table[3]) *
-              (table[0] + table[1]) *
-              (table[1] + table[3]) *
-              (table[0] + table[2]));
-}
+//
+// function gatherCorrelations(journal) {
+//   var phis = {};
+//   for(var entry = 0; entry < journal.length; entry++){
+//     var events = journal[entry].events;
+//     for(var i=0; i< events.length; i++){
+//       var event = events[i];
+//       if(!(event in phis))
+//         phis[event] = phi(tableFor(event, journal));
+//     }
+//   }
+//   return phis;
+// }
+//
+// var corrlations = gatherCorrelations(JOURNAL);
+// console.log(corrlations.pizza);
+//
+// for (var event in corrlations){
+//   var correlation = corrlations[event];
+//   if(correlation > 0,1 || correlation < -0,1)
+//     console.log(event +" : "+correlation);
+// }
+//
+// for(var i = 0; i< JOURNAL.length; i++){
+//   var entry = JOURNAL[i];
+//   if(hasEvent("peanuts", entry) && !hasEvent("brushed teeth", entry))
+//     entry.events.push("peanut teeth");
+// }
+// console.log(phi(tableFor("peanut teeth", JOURNAL)));
+//
+//
+//
+// function phi(table) {
+//   return (table[3] * table[0] - table[2] * table[1]) /
+//     Math.sqrt((table[2] + table[3]) *
+//               (table[0] + table[1]) *
+//               (table[1] + table[3]) *
+//               (table[0] + table[2]));
+// }

@@ -49,7 +49,11 @@ if (typeof module != "undefined" && module.exports)
 
 var ancestry = JSON.parse(ANCESTRY_FILE);
 console.log(ancestry.length);
-// → 39
+
+//Filtering an array
+/*
+* Like forEach, filter is also a standard method on arrays.
+* */
 function filter(array, test) {
   var passed = [];
   for (var i = 0; i < array.length; i++) {
@@ -62,115 +66,156 @@ function filter(array, test) {
 console.log(filter(ancestry, function(person) {
   return person.born > 1900 && person.born < 1925;
 }));
-//fillter
-console.log(ancestry.filter(function(person) {
-  return person.father == "Carel Haverbeke";
+
+
+console.log(ancestry.filter(function (persion) {
+    return persion.father == "Carel Haverbeke";
 }));
 
+console.log("------Transforming with map---------")
 //Transforming with map
+/*The map method transforms an array by applying a function to all of its elements and building a new array from the returned values.
+* Like forEach and filter, map is also a standard method on arrays.
+*/
+
 function map(array, transform) {
-  var mapped = [];
-  for (var i = 0; i < array.length; i++)
-    mapped.push(transform(array[i]));
-  return mapped;
+    var mapped = [];
+    for (var i =0 ; i< array.length; i++)
+        mapped.push(transform(array[i]))
+    return mapped;
 }
 
-var overNinety = ancestry.filter(function(person) {
-  return person.died - person.born > 90;
+var overNinety = ancestry.filter(function (person) {
+    return person.died - person.born > 90;
 });
-console.log(map(overNinety, function(person) {
-  return person.name;
+
+console.log(map(overNinety, function (person) {
+    return person.name;
 }));
 
-// Recude
-console.log(ancestry.reduce(function(min, cur) {
-  if (cur.born < min.born) return cur;
-  else return min;
-}));
-// → {name: "Pauwels van Haverbeke", born: 1535, …}
+
+//Summarizing with reduce
+/*
+* The higher-order operation that represents this pattern is called reduce (or sometimes fold).
+* parameters: apart from the array, a combining function and a start value
+* if array có ít nhất 1 elemant, bạn có thể leave off start arg, method reduce sẽ take first element as start value,
+* */
+function reduce(aray, combine, start){
+  var current = start;
+  for(var i =0; i< aray.length; i++)
+    current = combine(current, aray[i])
+  return current;
+}
+
+console.log(reduce([1,3,4,5], function(a,b){
+return a+ b}, 0));
+
+console.log(ancestry.reduce(function (min, cur) {
+    if(cur.born < min.born) return cur;
+    else return min;
+}))
 
 //Composability
-var min = ancestry[0];
-for (var i = 1; i < ancestry.length; i++) {
-  var cur = ancestry[i];
-  if (cur.born < min.born)
-    min = cur;
+/*
+* Higher-order functions start to shine when you need to compose functions
+*This is "fabulous" for writing clear code. Unfortunately, this clarity comes at a cost.
+* //Điều này là tuyệt vời cho việc viết code rõ ràng. Thật không may, rõ ràng điều này đi kèm với chi phí.
+* */
+function average(arr) {
+    function plus(a,b) {
+        return a+ b;
+    }
+    return arr.reduce(plus) /arr.length;
 }
-console.log(min);
 
-function average(array) {
-  function plus(a, b) { return a + b; }
-  return array.reduce(plus) / array.length;
+function age(p) {
+    return p.died - p.born;
 }
-function age(p) { return p.died - p.born; }
-function male(p) { return p.sex == "m"; }
-function female(p) { return p.sex == "f"; }
+function male(p) {
+    return p.sex == "m";
+}
+function female(p) {
+    return p.sex == "f";
+}
 
 console.log(average(ancestry.filter(male).map(age)));
-// → 61.67
 console.log(average(ancestry.filter(female).map(age)));
-// → 54.56
 
-//Greater
+//The cost
+/*
+* forEach: convenient and easy read. But function calls in JavaScript are costly compared to simple loop bodies.
+* If you have a loop inside a loop (either directly or through the outer loop calling a function that ends up performing the inner loop), the code inside the inner loop will end up running N×M times,
+* */
+
+//Great-great-great-great-...
 var byName = {};
-ancestry.forEach(function(person) {
-  byName[person.name] = person;
+ancestry.forEach(function (person) {
+    byName[person.name] = person;
 });
+console.log(byName["Philibert Haverbeke"])
 
-console.log(byName["Philibert Haverbeke"]);
-// → {name: "Philibert Haverbeke", …}
-
-//
 function reduceAncestors(person, f, defaultValue) {
-  function valueFor(person) {
-    if (person == null)
-      return defaultValue;
-    else
-      return f(person, valueFor(byName[person.mother]),
-                       valueFor(byName[person.father]));
-  }
-  return valueFor(person);
+    function valueFor(person) {
+        if(person == null)
+            return defaultValue;
+        else
+            return f(person, valueFor(byName[person.mother]), valueFor(byName[person.father]));
+    }
+    return valueFor(person)
 }
+
 function sharedDNA(person, fromMother, fromFather) {
-  if (person.name == "Pauwels van Haverbeke")
-    return 1;
-  else
-    return (fromMother + fromFather) / 2;
+    if(person.name == "Pauwels van Haverbeke")
+        return 1;
+    else
+        return (fromFather + fromMother) /2
 }
 var ph = byName["Philibert Haverbeke"];
 console.log(reduceAncestors(ph, sharedDNA, 0) / 4);
-// → 0.00049
 
 function countAncestors(person, test) {
-  function combine(current, fromMother, fromFather) {
-    var thisOneCounts = current != person && test(current);
-    return fromMother + fromFather + (thisOneCounts ? 1 : 0);
-  }
-  return reduceAncestors(person, combine, 0);
+    function combine(cur, fMother, fFather) {
+        var thisOneCounts = cur != person && test(cur);
+        return fMother + fFather + (thisOneCounts ? 1 : 0);
+    }
+    return reduceAncestors(person, combine, 0)
 }
 function longLivingPercentage(person) {
-  var all = countAncestors(person, function(person) {
-    return true;
-  });
-  var longLiving = countAncestors(person, function(person) {
-    return (person.died - person.born) >= 70;
-  });
-  return longLiving / all;
+    var all = countAncestors(person, function (person) {
+        return true;
+    });
+    var longLiving = countAncestors(person, function (person) {
+        return (person.died - person.born >= 70);
+    });
+    return longLiving / all;
 }
+
 console.log(longLivingPercentage(byName["Emile Haverbeke"]));
-// → 0.129
 
-//Bind
-var theSet = ["Carel Haverbeke", "Maria van Brussel",
-              "Donald Duck"];
-function isInSet(set, person) {
-  return set.indexOf(person.name) > -1;
+
+//Binding
+/*
+* The bind method: creates a new function that will call the original function but with some of the arguments already fixed.
+*
+* */
+
+var theSet = ["Carel Haverbeke", "Maria van Brussel", "Donald Duck"];
+function isInSet(set, p) {
+    return set.indexOf(p.name) > -1;
 }
 
-console.log(ancestry.filter(function(person) {
-  return isInSet(theSet, person);
-}));
-// → [{name: "Maria van Brussel", …},
-//    {name: "Carel Haverbeke", …}]
-console.log(ancestry.filter(isInSet.bind(null, theSet)));
-// → … same result
+console.log(ancestry.filter(function (p) {
+    return isInSet(theSet, p);
+}))
+
+console.log(ancestry.filter(isInSet.bind(null, theSet)))
+
+
+
+
+
+
+
+
+
+

@@ -3,14 +3,15 @@
  */
 
 var arrays = [[1, 2, 3], [4, 5], [6]];
-function flattening(array) {
-    var arr = [];
-    array.forEach(function (a) {
-        for(var i = 0; i < a.length; i++ )
-        arr.push(a[i])
-    });
-    return arr;
-}
-console.log(flattening(arrays));
 
-// → [1, 2, 3, 4, 5, 6]
+function flatten(arr) {
+    var rs = [];
+    arr.forEach(function (a) {
+        for (var i =0; i< a.length; i++)
+            rs.push(a[i])
+    });
+    return rs;
+}
+
+console.log(flatten(arrays));
+
